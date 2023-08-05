@@ -18,12 +18,11 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${inter.className} relative text-typography dark:text-typography-dark bg-primary-dark dark:bg-primary`}
+        className={`${inter.className} relative text-typography dark:text-typography-dark bg-primary dark:bg-primary-dark`}
       >
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-          <div className="absolute w-[14rem] h-[14rem] rounded-full top-10 bg-accent-dark right-8 blur-[6rem] -z-10"></div>
-          <div className="absolute w-60 h-52 rounded-full top-16 left-80 bg-secondary blur-[10rem] -z-10"></div>
-          <div className="absolute w-48 h-48 rounded-full top-52 left-10 bg-secondary-foreground blur-[7rem] -z-10"></div>
+          <div className="bg-secondary/50 absolute top-[-6rem] -z-10 right-[11rem] h-[31.25rem] w-[31.25rem] rounded-full blur-[10rem] sm:w-[68.75rem] dark:bg-secondary-dark/80"></div>
+          <div className="bg-secondary-foreground/60 absolute top-[10rem] -z-10 left-[-35rem] h-[20.25rem] w-[50rem] rounded-full blur-[10rem] sm:w-[68.75rem] md:left-[-33rem] lg:left-[-28rem] xl:left-[-15rem] 2xl:left-[-5rem] dark:bg-secondary-foreground-dark/40"></div>
           {children}
         </ThemeProvider>
       </body>

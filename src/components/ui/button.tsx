@@ -14,12 +14,14 @@ const buttonVariants = cva(
         destructive:
           'bg-red-500 text-slate-50 hover:bg-red-500/90 dark:bg-red-900 dark:text-red-50 dark:hover:bg-red-900/90',
         outline:
-          'border border-slate-200 bg-white hover:bg-slate-100 hover:text-slate-900 dark:border-slate-800 dark:bg-slate-950 dark:hover:bg-slate-800 dark:hover:text-slate-50',
+          'border border-secondary bg-white hover:bg-slate-100 hover:text-typography dark:border-secondary-dark dark:bg-foreground-dark dark:hover:bg-slate-800 dark:hover:text-typography-dark',
         secondary:
-          'bg-slate-100 text-slate-900 hover:bg-slate-100/80 dark:bg-slate-800 dark:text-slate-50 dark:hover:bg-slate-800/80',
+          'bg-secondary-foreground text-typography-dark hover:bg-secondary-foreground/80 dark:bg-secondary-foreground-dark dark:text-typography dark:hover:bg-secondary-foreground-dark/80',
         ghost:
-          'hover:bg-slate-100 hover:text-slate-900 dark:hover:bg-slate-800 dark:hover:text-slate-50',
-        link: 'text-slate-900 underline-offset-4 hover:underline dark:text-slate-50',
+          'hover:bg-foreground hover:text-typography dark:hover:bg-background-dark dark:hover:text-typography-dark',
+        link: 'text-typography underline-offset-4 hover:underline dark:text-typography-dark',
+        accent:
+          'bg-gradient-to-tl from-accent dark:from-accent-dark hover:from-10% to-secondary hover:to-60% dark:to-secondary-dark text-typography-dark rounded-xl text-base',
       },
       size: {
         default: 'h-10 px-4 py-2',

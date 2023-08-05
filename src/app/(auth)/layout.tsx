@@ -1,3 +1,5 @@
+import Navbar from '@/components/Navbar';
+
 export default function AuthLayout({
   children,
 }: {
@@ -5,10 +7,11 @@ export default function AuthLayout({
 }) {
   return (
     <>
-      <nav>
-        <h2>Hello navbar</h2>
-      </nav>
-      {children}
+      <Navbar />
+      <main className="bg-background dark:bg-background-dark min-h-[calc(100vh-48px)] grid sm:grid-cols-2">
+        <section className="order-2">Image</section>
+        {children}
+      </main>
     </>
   );
 }
