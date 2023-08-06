@@ -1,4 +1,5 @@
 import Navbar from '@/components/Navbar';
+import Link from 'next/link';
 
 export default function Home() {
   return (
@@ -10,6 +11,7 @@ export default function Home() {
             Create your own crypto portfolio!
           </h1>
         </section>
+        <Link href={'/dashboard'}>Wallet</Link>
       </main>
     </div>
   );
