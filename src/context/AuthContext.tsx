@@ -35,7 +35,7 @@ export default function AuthContextProvider({
         setLoading(false);
       } else {
         setUser(null);
-        router.push('/');
+        router.push('/sign-up');
       }
     });
 

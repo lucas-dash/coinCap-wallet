@@ -17,6 +17,7 @@ import {
 import { Input } from '@/components/ui/Input';
 import { useForm } from 'react-hook-form';
 import Link from 'next/link';
+import { signUp } from '@/firebase/auth';
 
 const signUpSchema = z
   .object({
@@ -47,8 +48,15 @@ export default function SignUp() {
     },
   });
 
-  function signUpUser(data: z.infer<typeof signUpSchema>) {
-    console.log(data);
+  async function signUpUser(data: z.infer<typeof signUpSchema>) {
+    const { result, error } = await signUp(data.email, data.password);
+
+    if (result) {
+      router.push('/dashboard');
+      form.reset();
+    } else {
+      console.log(error);
+    }
   }
 
   return (

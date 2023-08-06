@@ -17,6 +17,7 @@ import { Input } from '@/components/ui/Input';
 import { Button } from '@/components/ui/Button';
 import { useForm } from 'react-hook-form';
 import Link from 'next/link';
+import { logIn } from '@/firebase/auth';
 
 const logInSchema = z.object({
   email: z.string().email(),
@@ -37,8 +38,15 @@ export default function Login() {
     },
   });
 
-  function logInUser(data: z.infer<typeof logInSchema>) {
-    console.log(data);
+  async function logInUser(data: z.infer<typeof logInSchema>) {
+    const { result, error } = await logIn(data.email, data.password);
+
+    if (result) {
+      router.push('/dashboard');
+      form.reset();
+    } else {
+      console.log(error);
+    }
   }
 
   return (
