@@ -17,7 +17,7 @@ import { Input } from '@/components/ui/Input';
 import { Button } from '@/components/ui/Button';
 import { useForm } from 'react-hook-form';
 import Link from 'next/link';
-import { logIn } from '@/firebase/auth';
+import { logIn, signInWithGoogle } from '@/firebase/auth';
 import { FirebaseError } from 'firebase/app';
 import { useToast } from '@/components/ui/use-toast';
 import { useState } from 'react';
@@ -43,6 +43,26 @@ export default function Login() {
       password: '',
     },
   });
+
+  async function signInUserWithGoogle() {
+    const { result, error } = await signInWithGoogle();
+
+    if (result) {
+      router.push('/dashboard');
+      toast({
+        title: `Succesfully login as ${
+          result.user.displayName ? result.user.displayName : result.user.email
+        }`,
+      });
+    } else {
+      const authError = (error as FirebaseError).code.slice(5);
+      toast({
+        title: 'Something went wrong!',
+        description: `${authError} Check your typos.`,
+        variant: 'destructive',
+      });
+    }
+  }
 
   async function logInUser(data: z.infer<typeof logInSchema>) {
     setLoading(true);
@@ -126,8 +146,10 @@ export default function Login() {
             className="w-full flex items-center justify-center group transition-all"
           >
             <Button
+              type="button"
               variant={'outline'}
               className="rounded-full w-14 group-hover:w-full transition-all duration-300 ease-in-out"
+              onClick={() => signInUserWithGoogle()}
             >
               <Icons.google className="h-6 w-6 group-hover:mr-2" />
               <p className="font-medium text-sm hidden group-hover:inline-block whitespace-nowrap">

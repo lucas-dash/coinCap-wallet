@@ -17,7 +17,7 @@ import {
 import { Input } from '@/components/ui/Input';
 import { useForm } from 'react-hook-form';
 import Link from 'next/link';
-import { signUp } from '@/firebase/auth';
+import { signInWithGoogle, signUp } from '@/firebase/auth';
 import { useToast } from '@/components/ui/use-toast';
 import { useState } from 'react';
 import { FirebaseError } from 'firebase/app';
@@ -73,6 +73,26 @@ export default function SignUp() {
         variant: 'destructive',
       });
       setLoading(false);
+    }
+  }
+
+  async function signInUserWithGoogle() {
+    const { result, error } = await signInWithGoogle();
+
+    if (result) {
+      router.push('/dashboard');
+      toast({
+        title: `Succesfully login as ${
+          result.user.displayName ? result.user.displayName : result.user.email
+        }`,
+      });
+    } else {
+      const authError = (error as FirebaseError).code.slice(5);
+      toast({
+        title: 'Something went wrong!',
+        description: `${authError} Check your typos.`,
+        variant: 'destructive',
+      });
     }
   }
 
@@ -143,8 +163,10 @@ export default function SignUp() {
             className="w-full flex items-center justify-center group transition-all"
           >
             <Button
+              type="button"
               variant={'outline'}
               className="rounded-full w-14 group-hover:w-full transition-all duration-300 ease-in-out"
+              onClick={() => signInUserWithGoogle()}
             >
               <Icons.google className="h-6 w-6 group-hover:mr-2" />
               <p className="font-medium text-sm hidden group-hover:inline-block whitespace-nowrap">

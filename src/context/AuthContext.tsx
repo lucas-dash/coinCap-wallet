@@ -2,19 +2,11 @@
 
 import { User, onAuthStateChanged } from 'firebase/auth';
 import { auth } from '@/firebase/config';
-import {
-  createContext,
-  useContext,
-  useState,
-  useEffect,
-  ReactNode,
-} from 'react';
+import { createContext, useState, useEffect, ReactNode } from 'react';
 import { useRouter } from 'next/navigation';
 import { Icons } from '@/components/Icons';
 
-const AuthContext = createContext({});
-
-// export const useAuthContext = () => useContext(AuthContext);
+export const AuthContext = createContext<User | undefined>(undefined);
 
 type AuthContextProviderProps = {
   children: ReactNode;
@@ -23,7 +15,7 @@ type AuthContextProviderProps = {
 export default function AuthContextProvider({
   children,
 }: AuthContextProviderProps) {
-  const [user, setUser] = useState<User | null>(null);
+  const [user, setUser] = useState<User | undefined>(undefined);
   const [loading, setLoading] = useState(true);
   const router = useRouter();
 
@@ -37,7 +29,7 @@ export default function AuthContextProvider({
           router.push('/dashboard');
           setLoading(false);
         } else {
-          setUser(null);
+          setUser(undefined);
           router.push('/sign-up');
         }
       },
@@ -50,7 +42,7 @@ export default function AuthContextProvider({
   }, [router]);
 
   return (
-    <AuthContext.Provider value={{ user }}>
+    <AuthContext.Provider value={user}>
       {loading ? (
         <div className="flex items-center justify-center min-h-screen w-full">
           <Icons.loading className="w-20 h-20 animate-spin text-primary-dark dark:text-primary" />
