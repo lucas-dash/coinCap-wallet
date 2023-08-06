@@ -18,8 +18,13 @@ export default function NavLink({ href, name, icon }: NavLinkProps) {
       <a
         className={`${
           pathname === href
-            ? buttonVariants({ variant: 'accent' })
-            : buttonVariants({ variant: 'ghost', className: 'rounded-xl' })
+            ? buttonVariants({
+                variant: 'accent',
+              })
+            : buttonVariants({
+                variant: 'ghost',
+                className: 'rounded-xl',
+              })
         }`}
       >
         {icon}

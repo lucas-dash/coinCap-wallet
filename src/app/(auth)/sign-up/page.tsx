@@ -18,6 +18,7 @@ import { Input } from '@/components/ui/Input';
 import { useForm } from 'react-hook-form';
 import Link from 'next/link';
 import { signUp } from '@/firebase/auth';
+import { useToast } from '@/components/ui/use-toast';
 
 const signUpSchema = z
   .object({
@@ -38,6 +39,7 @@ const signUpSchema = z
 
 export default function SignUp() {
   const router = useRouter();
+  const { toast } = useToast();
 
   const form = useForm<z.infer<typeof signUpSchema>>({
     resolver: zodResolver(signUpSchema),
@@ -53,9 +55,17 @@ export default function SignUp() {
 
     if (result) {
       router.push('/dashboard');
+      toast({
+        title: `Succesfully sign up as ${result.user.email}`,
+      });
       form.reset();
     } else {
       console.log(error);
+      toast({
+        title: 'Something went wrong!',
+        description: 'Check your typos.',
+        variant: 'destructive',
+      });
     }
   }
 

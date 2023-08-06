@@ -17,11 +17,17 @@ export default function Navbar() {
           <div className="flex items-center gap-1.5">
             <Link
               href={'/login'}
-              className={buttonVariants({ variant: 'ghost' })}
+              className={buttonVariants({
+                variant: 'ghost',
+                className: 'rounded-3xl',
+              })}
             >
               Log in
             </Link>
-            <Link href={'/sign-up'} className={buttonVariants()}>
+            <Link
+              href={'/sign-up'}
+              className={buttonVariants({ className: 'rounded-3xl' })}
+            >
               Sign Up
             </Link>
           </div>
