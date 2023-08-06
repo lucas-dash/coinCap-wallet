@@ -19,6 +19,9 @@ import { useForm } from 'react-hook-form';
 import Link from 'next/link';
 import { signUp } from '@/firebase/auth';
 import { useToast } from '@/components/ui/use-toast';
+import { useState } from 'react';
+import { FirebaseError } from 'firebase/app';
+import { Icons } from '@/components/Icons';
 
 const signUpSchema = z
   .object({
@@ -40,6 +43,7 @@ const signUpSchema = z
 export default function SignUp() {
   const router = useRouter();
   const { toast } = useToast();
+  const [loading, setLoading] = useState<boolean>(false);
 
   const form = useForm<z.infer<typeof signUpSchema>>({
     resolver: zodResolver(signUpSchema),
@@ -51,6 +55,7 @@ export default function SignUp() {
   });
 
   async function signUpUser(data: z.infer<typeof signUpSchema>) {
+    setLoading(true);
     const { result, error } = await signUp(data.email, data.password);
 
     if (result) {
@@ -59,13 +64,15 @@ export default function SignUp() {
         title: `Succesfully sign up as ${result.user.email}`,
       });
       form.reset();
+      setLoading(false);
     } else {
-      console.log(error);
+      const authError = (error as FirebaseError).code.slice(5);
       toast({
         title: 'Something went wrong!',
-        description: 'Check your typos.',
+        description: `${authError}Check your typos.`,
         variant: 'destructive',
       });
+      setLoading(false);
     }
   }
 
@@ -131,13 +138,31 @@ export default function SignUp() {
             )}
           />
 
+          <div
+            aria-label="sign up with google"
+            className="w-full flex items-center justify-center group transition-all"
+          >
+            <Button
+              variant={'outline'}
+              className="rounded-full w-14 group-hover:w-full transition-all duration-300 ease-in-out"
+            >
+              <Icons.google className="h-6 w-6 group-hover:mr-2" />
+              <p className="font-medium text-sm hidden group-hover:inline-block whitespace-nowrap">
+                Sign Up with Google
+              </p>
+            </Button>
+          </div>
+
           <Button
             size={'sm'}
             type="submit"
             className="w-full rounded-xl bg-transparent dark:bg-transparent border-2 border-input-dark dark:border-input-dark hover:border-0 text-typography hover:text-typography-dark dark:text-typography-dark dark:hover:text-typography hover:bg-gradient-to-r from-accent dark:from-accent-dark to-secondary dark:to-secondary-dark"
+            disabled={loading}
           >
+            {loading && <Icons.loading className="mr-2 h-4 w-4 animate-spin" />}
             Sign Up
           </Button>
+
           <FormDescription className="text-secondary-foreground dark:text-secondary-foreground-dark">
             Already have an account?{' '}
             <Link

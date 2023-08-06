@@ -10,6 +10,7 @@ import {
   ReactNode,
 } from 'react';
 import { useRouter } from 'next/navigation';
+import { Icons } from '@/components/Icons';
 
 const AuthContext = createContext({});
 
@@ -27,17 +28,23 @@ export default function AuthContextProvider({
   const router = useRouter();
 
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (credential) => {
-      if (credential) {
-        console.log(credential);
-        setUser(credential);
-        router.push('/dashboard');
-        setLoading(false);
-      } else {
-        setUser(null);
-        router.push('/sign-up');
+    const unsubscribe = onAuthStateChanged(
+      auth,
+      (credential) => {
+        if (credential) {
+          console.log(credential);
+          setUser(credential);
+          router.push('/dashboard');
+          setLoading(false);
+        } else {
+          setUser(null);
+          router.push('/sign-up');
+        }
+      },
+      (error) => {
+        console.log(error);
       }
-    });
+    );
 
     return () => unsubscribe();
   }, [router]);
@@ -45,8 +52,8 @@ export default function AuthContextProvider({
   return (
     <AuthContext.Provider value={{ user }}>
       {loading ? (
-        <div className="flex items-center justify-center text-4xl font-bold">
-          Loading...
+        <div className="flex items-center justify-center min-h-screen w-full">
+          <Icons.loading className="w-20 h-20 animate-spin text-primary-dark dark:text-primary" />
         </div>
       ) : (
         children

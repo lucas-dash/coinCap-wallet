@@ -5,7 +5,7 @@ import LogOut from './LogOut';
 export default function Sidebar() {
   return (
     <aside className="bg-primary/80 dark:bg-primary-dark/80 backdrop-blur-sm hidden sm:flex flex-col justify-between py-5 px-2 min-w-[200px] h-[calc(100vh-48px)] sticky top-[48px]">
-      <nav className="flex flex-col items-start gap-7 mx-auto">
+      <nav className="flex flex-col items-start gap-7 mx-auto w-full">
         <NavLink
           href="/dashboard"
           name="Dashboard"

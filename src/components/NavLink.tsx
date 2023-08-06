@@ -20,10 +20,11 @@ export default function NavLink({ href, name, icon }: NavLinkProps) {
           pathname === href
             ? buttonVariants({
                 variant: 'accent',
+                className: 'w-full',
               })
             : buttonVariants({
                 variant: 'ghost',
-                className: 'rounded-xl',
+                className: 'rounded-xl w-full',
               })
         }`}
       >

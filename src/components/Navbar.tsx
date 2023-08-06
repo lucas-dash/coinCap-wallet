@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import ModeToggle from './ModeToggle';
-import { buttonVariants } from './ui/Button';
+import { Button } from './ui/Button';
 
 export default function Navbar() {
   return (
@@ -15,21 +15,12 @@ export default function Navbar() {
         <div className="flex items-center sm:gap-2">
           <ModeToggle />
           <div className="flex items-center gap-1.5">
-            <Link
-              href={'/login'}
-              className={buttonVariants({
-                variant: 'ghost',
-                className: 'rounded-3xl',
-              })}
-            >
-              Log in
-            </Link>
-            <Link
-              href={'/sign-up'}
-              className={buttonVariants({ className: 'rounded-3xl' })}
-            >
-              Sign Up
-            </Link>
+            <Button variant={'ghost'} size={'sm'} className="rounded-3xl">
+              <Link href={'/login'}>Log in</Link>
+            </Button>
+            <Button asChild className="rounded-3xl" size={'sm'}>
+              <Link href={'/sign-up'}>Sign Up</Link>
+            </Button>
           </div>
         </div>
       </nav>

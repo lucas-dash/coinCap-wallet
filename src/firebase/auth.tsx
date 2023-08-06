@@ -11,7 +11,6 @@ export async function signUp(email: string, password: string) {
 
   try {
     result = await createUserWithEmailAndPassword(auth, email, password);
-    console.log(result.user.uid);
   } catch (e) {
     error = e;
   }
