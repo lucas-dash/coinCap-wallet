@@ -2,8 +2,9 @@
 
 import { Dispatch, SetStateAction } from 'react';
 import { Button } from './ui/Button';
-import Link from 'next/link';
 import { Icons } from './Icons';
+import NavLink from './NavLink';
+import LogOut from './LogOut';
 
 type MobileNavProps = {
   close: Dispatch<SetStateAction<boolean>>;
@@ -11,7 +12,7 @@ type MobileNavProps = {
 
 export default function MobileNav({ close }: MobileNavProps) {
   return (
-    <section className="absolute inset-0 z-40 bg-primary/90 dark:bg-primary-dark/90 backdrop-blur-sm min-h-screen sm:hidden p-2 flex flex-col">
+    <section className="absolute inset-0 z-40 bg-primary/90 dark:bg-primary-dark/90 backdrop-blur-sm min-h-screen sm:hidden p-2 flex flex-col items-end">
       <Button
         variant={'ghost'}
         size={'icon'}
@@ -21,29 +22,41 @@ export default function MobileNav({ close }: MobileNavProps) {
         <Icons.close />
       </Button>
 
-      <nav className="w-full flex flex-col items-center gap-7">
-        <Button
-          asChild
-          variant={'outline'}
-          className="min-w-[170px] rounded-xl"
+      <div className=" w-full flex flex-col items-center justify-evenly h-full">
+        <nav
+          className=" flex flex-col items-start gap-7 py-6 mx-auto"
+          onClick={() => close(false)}
         >
-          <Link href={'/dashboard'}>
-            <Icons.dashboard />
-            <p className="font-medium ml-2 text-lg">Dashboard</p>
-          </Link>
-        </Button>
-
-        <Button
-          asChild
-          variant={'outline'}
-          className="min-w-[170px] rounded-xl"
-        >
-          <Link href={'/portfolio'}>
-            <Icons.portfolio />
-            <p className="font-medium text-lg ml-2">Portfolio</p>
-          </Link>
-        </Button>
-      </nav>
+          <NavLink
+            href="/dashboard"
+            name="Dashboard"
+            icon={<Icons.dashboard className="mr-2" />}
+          />
+          <NavLink
+            href="/portfolio"
+            name="Portfolio"
+            icon={<Icons.portfolio className="mr-2" />}
+          />
+          <NavLink
+            href="/watchlist"
+            name="Watchlist"
+            icon={<Icons.watchlist className="mr-2" />}
+          />
+          <NavLink
+            href="/cryptocurrency"
+            name="Cryptocurrency"
+            icon={<Icons.cryptocurrency className="mr-2" />}
+          />
+          <NavLink
+            href="/profile"
+            name="Profile"
+            icon={<Icons.profile className="mr-2" />}
+          />
+        </nav>
+        <div className="w-full">
+          <LogOut />
+        </div>
+      </div>
     </section>
   );
 }

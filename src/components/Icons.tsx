@@ -5,6 +5,11 @@ import {
   LayoutDashboard,
   X,
   PieChart,
+  Github,
+  Heart,
+  Bitcoin,
+  User2,
+  LogOut,
 } from 'lucide-react';
 
 export const Icons = {
@@ -13,6 +18,11 @@ export const Icons = {
   dashboard: LayoutDashboard,
   portfolio: PieChart,
   close: X,
+  github: Github,
+  watchlist: Heart,
+  cryptocurrency: Bitcoin,
+  profile: User2,
+  logout: LogOut,
   google: (props: LucideProps) => (
     <svg {...props} viewBox="0 0 24 24">
       <path
@@ -34,5 +44,4 @@ export const Icons = {
       <path d="M1 1h22v22H1z" fill="none" />
     </svg>
   ),
-  // commentReply: MessageSquare,
 };
