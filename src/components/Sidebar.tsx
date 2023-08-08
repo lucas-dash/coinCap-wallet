@@ -22,9 +22,9 @@ export default function Sidebar() {
           icon={<Icons.watchlist className="mr-2" />}
         />
         <NavLink
-          href="/cryptocurrency"
-          name="Cryptocurrency"
-          icon={<Icons.cryptocurrency className="mr-2" />}
+          href="/markets"
+          name="Markets"
+          icon={<Icons.trendingUp className="mr-2" />}
         />
         <NavLink
           href="/profile"

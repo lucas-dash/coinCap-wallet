@@ -11,6 +11,7 @@ import {
   User2,
   LogOut,
   Loader2,
+  TrendingUp,
 } from 'lucide-react';
 
 export const Icons = {
@@ -21,10 +22,10 @@ export const Icons = {
   close: X,
   github: Github,
   watchlist: Heart,
-  cryptocurrency: Bitcoin,
   profile: User2,
   logout: LogOut,
   loading: Loader2,
+  trendingUp: TrendingUp,
   google: (props: LucideProps) => (
     <svg {...props} viewBox="0 0 24 24">
       <path

@@ -3,6 +3,8 @@ import {
   signInWithPopup,
   signInWithEmailAndPassword,
   signOut,
+  deleteUser,
+  User,
 } from 'firebase/auth';
 import { auth, googleProvider } from './config';
 
@@ -47,3 +49,15 @@ export async function logIn(email: string, password: string) {
 export async function logOut() {
   await signOut(auth);
 }
+
+export async function deleteUserAccount(user: User) {
+  let error = null;
+  try {
+    await deleteUser(user);
+  } catch (e) {
+    error = e;
+  }
+  return { error };
+}
+
+export async function updateUserPassword() {}

@@ -4,7 +4,8 @@ import { User, onAuthStateChanged } from 'firebase/auth';
 import { auth } from '@/firebase/config';
 import { createContext, useState, useEffect, ReactNode } from 'react';
 import { useRouter } from 'next/navigation';
-import { Icons } from '@/components/Icons';
+import LoadBall from '@/components/ui/LoadBall';
+import { useToast } from '@/components/ui/use-toast';
 
 export const AuthContext = createContext<User | undefined>(undefined);
 
@@ -18,6 +19,7 @@ export default function AuthContextProvider({
   const [user, setUser] = useState<User | undefined>(undefined);
   const [loading, setLoading] = useState(true);
   const router = useRouter();
+  const { toast } = useToast();
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(
@@ -26,10 +28,13 @@ export default function AuthContextProvider({
         if (credential) {
           console.log(credential);
           setUser(credential);
-          router.push('/dashboard');
           setLoading(false);
         } else {
           setUser(undefined);
+          toast({
+            title: 'You must be logged in.',
+            variant: 'destructive',
+          });
           router.push('/sign-up');
         }
       },
@@ -39,17 +44,11 @@ export default function AuthContextProvider({
     );
 
     return () => unsubscribe();
-  }, [router]);
+  }, [router, toast]);
 
   return (
     <AuthContext.Provider value={user}>
-      {loading ? (
-        <div className="flex items-center justify-center min-h-screen w-full">
-          <Icons.loading className="w-20 h-20 animate-spin text-primary-dark dark:text-primary" />
-        </div>
-      ) : (
-        children
-      )}
+      {loading ? <LoadBall /> : children}
     </AuthContext.Provider>
   );
 }
