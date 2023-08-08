@@ -152,9 +152,9 @@ export default function Login() {
               onClick={() => signInUserWithGoogle()}
             >
               <Icons.google className="h-6 w-6 group-hover:mr-2" />
-              <p className="font-medium text-sm hidden group-hover:inline-block whitespace-nowrap">
+              <span className="font-medium text-sm hidden group-hover:inline-block whitespace-nowrap">
                 Log In with Google
-              </p>
+              </span>
             </Button>
           </div>
 

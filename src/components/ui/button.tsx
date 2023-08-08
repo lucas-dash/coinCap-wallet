@@ -12,7 +12,7 @@ const buttonVariants = cva(
         default:
           'bg-secondary text-typography-dark hover:bg-secondary/90 dark:bg-secondary-dark dark:text-typography-dark dark:hover:bg-secondary-dark/90',
         destructive:
-          'bg-red-500 text-slate-50 hover:bg-red-500/90 dark:bg-red-900 dark:text-red-50 dark:hover:bg-red-900/90',
+          'bg-red-500 text-slate-50 hover:bg-red-500/90 dark:bg-red-700 dark:text-red-50 dark:hover:bg-red-700/90',
         outline:
           'border border-secondary bg-white hover:bg-slate-100 hover:text-typography dark:border-secondary-dark dark:bg-foreground-dark dark:hover:bg-slate-800 dark:hover:text-typography-dark',
         secondary:

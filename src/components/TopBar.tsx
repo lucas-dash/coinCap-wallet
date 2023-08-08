@@ -6,7 +6,7 @@ import NavSwitcher from './NavSwitcher';
 
 export default function TopBar() {
   return (
-    <header className="h-12 flex items-center justify-between bg-primary/80 backdrop-blur-sm dark:bg-primary-dark/80 sticky top-0">
+    <header className="h-12 flex items-center justify-between bg-primary/80 backdrop-blur-sm dark:bg-primary-dark/80 sticky top-0 z-40">
       <div className=" w-full px-2 sm:px-4 flex items-center justify-between">
         <div className="flex items-center gap-1">
           <NavSwitcher />

@@ -3,7 +3,6 @@ import TopBar from '@/components/TopBar';
 import Sidebar from '@/components/Sidebar';
 import { Icons } from '@/components/Icons';
 import AuthContextProvider from '@/context/AuthContext';
-import { Button } from '@/components/ui/Button';
 import Link from 'next/link';
 
 export default function WalletLayout({
@@ -17,8 +16,8 @@ export default function WalletLayout({
       <div className="flex min-h-[calc(100vh-48px)]">
         <Sidebar />
         <div className="w-full">
-          <main className="p-1 sm:p-2 h-[calc(100%-18px)]">{children}</main>
-          <footer className="h-[18px] text-xs text-center">
+          <main className="p-1.5 sm:p-2 h-[calc(100%-20px)]">{children}</main>
+          <footer className="h-[20px] text-xs text-center">
             <Link
               href={'https://github.com/lucas-dash'}
               className="hover:underline"

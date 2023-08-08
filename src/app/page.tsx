@@ -5,7 +5,7 @@ export default function Home() {
   return (
     <div className="min-h-screen ">
       <Navbar />
-      <main className="flex justify-center">
+      <main className="flex justify-center pt-14">
         <section>
           <h1 className="text-3xl font-bold">
             Create your own crypto portfolio!

@@ -1,0 +1,82 @@
+'use client';
+
+import { useAuthContext } from '@/hooks/useAuth';
+import { Button } from './ui/Button';
+
+export default function UserInfo() {
+  const user = useAuthContext();
+
+  return (
+    <section className="flex flex-col gap-5">
+      <div className="w-full flex justify-center">
+        <div className="h-32 w-32 bg-rose-500 rounded-full "></div>
+      </div>
+
+      <article className="bg-foreground dark:bg-background-dark rounded-xl px-2 py-3 shadow-[0_2px_10px_-3px] shadow-shadow/60 dark:shadow-shadow/80 flex flex-col gap-3 2xl:max-w-6xl 2xl:mx-auto 2xl:w-[660px]">
+        <section>
+          <h6 className="font-semibold text-lg pb-1 pl-1.5">App</h6>
+
+          <ul className="flex flex-col bg-zinc-200 dark:bg-foreground-dark rounded-lg ">
+            <li className="flex items-center justify-between border-b border-foreground p-2">
+              <p className="font-medium">Launch Screen</p>
+              <p className="text-typography-detail dark:text-typography-detail-dark">
+                Markets
+              </p>
+            </li>
+
+            <li className="flex justify-between p-2">
+              <p className="font-medium">Dark Mode</p>
+              <p className="text-typography-detail dark:text-typography-detail-dark">
+                System
+              </p>
+            </li>
+          </ul>
+        </section>
+
+        <section>
+          <h6 className="font-semibold text-lg pb-1 pl-1.5">
+            Security & Privacy
+          </h6>
+
+          <ul className="flex flex-col bg-zinc-200 dark:bg-foreground-dark rounded-lg">
+            <li className="flex items-center justify-between gap-1 flex-wrap p-2 border-b border-foreground">
+              <p className="font-medium">E-mail address:</p>
+              <p className="text-typography-detail dark:text-typography-detail-dark">
+                {user?.email}
+              </p>
+            </li>
+
+            <li className="flex items-center justify-between p-2 border-b border-foreground">
+              <p className="font-medium">Verified</p>
+              <p className="text-typography-detail dark:text-typography-detail-dark">
+                {user?.emailVerified ? 'Yes' : 'No'}
+              </p>
+            </li>
+
+            <li className="flex items-center justify-between p-2 border-b border-foreground">
+              <p className="font-medium">Change password</p>
+              <Button
+                variant={'secondary'}
+                size={'sm'}
+                className="rounded-xl min-w-[80px]"
+              >
+                Change
+              </Button>
+            </li>
+
+            <li className="flex items-center justify-between p-2">
+              <p className="font-medium">Delete account</p>
+              <Button
+                variant={'destructive'}
+                size={'sm'}
+                className="rounded-xl min-w-[80px]"
+              >
+                Delete
+              </Button>
+            </li>
+          </ul>
+        </section>
+      </article>
+    </section>
+  );
+}
