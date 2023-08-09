@@ -1,6 +1,6 @@
-import { Icons } from './Icons';
-import NavLink from './NavLink';
-import LogOut from './LogOut';
+import { Icons } from '../Icons';
+import NavLink from '../NavLink';
+import LogOut from '../LogOut';
 
 export default function Sidebar() {
   return (

@@ -35,7 +35,7 @@ export default function AuthContextProvider({
             title: 'You must be logged in.',
             variant: 'destructive',
           });
-          router.push('/sign-up');
+          router.push('/login');
         }
       },
       (error) => {

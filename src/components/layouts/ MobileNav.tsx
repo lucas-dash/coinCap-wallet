@@ -1,10 +1,10 @@
 'use client';
 
 import { Dispatch, SetStateAction } from 'react';
-import { Button } from './ui/Button';
-import { Icons } from './Icons';
-import NavLink from './NavLink';
-import LogOut from './LogOut';
+import { Button } from '../ui/Button';
+import { Icons } from '../Icons';
+import NavLink from '../NavLink';
+import LogOut from '../LogOut';
 
 type MobileNavProps = {
   close: Dispatch<SetStateAction<boolean>>;

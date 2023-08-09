@@ -1,6 +1,12 @@
 import UserInfo from '@/components/UserInfo';
 import LoadBall from '@/components/ui/LoadBall';
+import { Metadata } from 'next';
 import { Suspense } from 'react';
+
+export const metadata: Metadata = {
+  title: 'Profile | Coin Wallet',
+  description: 'Your profile information',
+};
 
 export default function Profile() {
   return (

@@ -61,3 +61,5 @@ export async function deleteUserAccount(user: User) {
 }
 
 export async function updateUserPassword() {}
+
+export function verificationEmail() {}

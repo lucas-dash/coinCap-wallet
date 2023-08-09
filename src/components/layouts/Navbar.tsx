@@ -1,6 +1,6 @@
 import Link from 'next/link';
-import ModeToggle from './ModeToggle';
-import { Button } from './ui/Button';
+import ModeToggle from '../ui/ModeToggle';
+import { Button } from '../ui/Button';
 
 export default function Navbar() {
   return (

@@ -1,8 +1,7 @@
 'use client';
 
-import Link from 'next/link';
-import { Icons } from './Icons';
-import { Button } from './ui/Button';
+import { Icons } from '../Icons';
+import { Button } from '../ui/Button';
 import { useState } from 'react';
 import MobileNav from './ MobileNav';
 
