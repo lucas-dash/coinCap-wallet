@@ -1,4 +1,6 @@
 import UserInfo from '@/components/UserInfo';
+import LoadBall from '@/components/ui/LoadBall';
+import { Suspense } from 'react';
 
 export default function Profile() {
   return (
@@ -6,7 +8,9 @@ export default function Profile() {
       <h3 className="text-xl font-medium p-2 pb-3 text-center md:text-left">
         Your Profile
       </h3>
-      <UserInfo />
+      <Suspense fallback={<LoadBall />}>
+        <UserInfo />
+      </Suspense>
     </section>
   );
 }

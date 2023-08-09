@@ -39,7 +39,7 @@ export default function UserInfo() {
         <section>
           <h6 className="font-semibold text-lg pb-1 pl-1.5">App</h6>
 
-          <ul className="flex flex-col bg-zinc-200 dark:bg-background-dark rounded-lg ">
+          <ul className="flex flex-col bg-zinc-200 dark:bg-background-dark rounded-lg">
             <li className="flex items-center justify-between border-b border-foreground p-2">
               <p className="font-medium">Launch Screen</p>
               <p className="text-typography-detail dark:text-typography-detail-dark">
