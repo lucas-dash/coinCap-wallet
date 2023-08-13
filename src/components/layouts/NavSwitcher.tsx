@@ -13,7 +13,7 @@ export default function NavSwitcher() {
       <Button
         variant={'ghost'}
         size={'icon'}
-        className="sm:hidden rounded-full"
+        className="md:hidden rounded-full"
         onClick={() => setOpen(true)}
       >
         <Icons.panel />

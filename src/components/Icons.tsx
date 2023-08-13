@@ -7,11 +7,15 @@ import {
   PieChart,
   Github,
   Heart,
-  Bitcoin,
   User2,
   LogOut,
   Loader2,
   TrendingUp,
+  ArrowUpDown,
+  ChevronUp,
+  ChevronDown,
+  Search,
+  Coins,
 } from 'lucide-react';
 
 export const Icons = {
@@ -26,6 +30,11 @@ export const Icons = {
   logout: LogOut,
   loading: Loader2,
   trendingUp: TrendingUp,
+  sorting: ArrowUpDown,
+  trendUp: ChevronUp,
+  trendDown: ChevronDown,
+  search: Search,
+  coins: Coins,
   google: (props: LucideProps) => (
     <svg {...props} viewBox="0 0 24 24">
       <path

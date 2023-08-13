@@ -15,7 +15,7 @@ export default function WalletLayout({
       <TopBar />
       <div className="flex min-h-[calc(100vh-48px)]">
         <Sidebar />
-        <div className="w-full">
+        <div className="w-full md:w-[calc(100vw-200px)]">
           <main className="p-1.5 sm:p-2 h-[calc(100%-20px)]">{children}</main>
           <footer className="h-[20px] text-xs text-center">
             <Link

@@ -5,7 +5,7 @@ import { Suspense } from 'react';
 
 export const metadata: Metadata = {
   title: 'Profile | Coin Wallet',
-  description: 'Your profile information',
+  description: 'Your information about your account',
 };
 
 export default function Profile() {
