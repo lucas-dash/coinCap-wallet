@@ -1,6 +1,12 @@
 import MarketsCoins from '@/components/MarketsCoins';
 import MarketsHeader from '@/components/MarketsHeader';
 import { getCryptoData } from '@/lib/getCoinsData';
+import { Metadata } from 'next';
+
+const metadata: Metadata = {
+  title: 'Markets | Coin Wallet',
+  description: 'Search for coins in realtime crypto markets.',
+};
 
 export default async function Markets() {
   const coinsRes: Promise<CryptoData> = await getCryptoData();
@@ -8,7 +14,7 @@ export default async function Markets() {
 
   return (
     <section className="h-full">
-      {/* <MarketsHeader {...coinsData?.data.stats} /> */}
+      <MarketsHeader {...coinsData?.data.stats} />
       <MarketsCoins coinData={coinsData?.data?.coins} />
     </section>
   );

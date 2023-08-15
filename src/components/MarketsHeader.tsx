@@ -1,9 +1,9 @@
 import { compactNumber } from '@/lib/functions';
 
 export default function MarketsHeader({
-  totalMarketCap,
   total24hVolume,
-  totalMarkets,
+  totalMarketCap,
+  totalExchanges,
 }: Stats) {
   return (
     <section className="">
@@ -14,11 +14,38 @@ export default function MarketsHeader({
         The global crypto market cap is {compactNumber(totalMarketCap)}
       </p>
 
-      <section className="my-7 border border-red-400 flex gap-4 w-full">
-        <article className="min-h-[200px] min-w-[280px] rounded-xl bg-foreground dark:bg-foreground-dark">
+      <section className="my-5 flex overflow-x-scroll gap-4 snap-x snap-mandatory snap-always lg:snap-none lg:overflow-hidden max-w-6xl mx-auto py-2 px-1">
+        <article className="min-h-[200px] min-w-[200px] rounded-xl bg-foreground/60  dark:bg-foreground-dark/70 flex-grow-0 flex-shrink-0 basis-full snap-start lg:flex-1 shadow-[-2px_3px_10px_-2px] shadow-secondary-foreground dark:shadow-secondary-dark p-1.5">
+          <div>
+            <h4 className="text-center text-base md:text-lg font-semibold mb-2">
+              Crypto market stats over the last 24 hours
+            </h4>
+            <p className="mb-1">
+              Total 24h Volume:{' '}
+              <span className="font-semibold">
+                {compactNumber(total24hVolume)}
+              </span>
+            </p>
+            <p className="">
+              Total Exchanges:{' '}
+              <span className="font-semibold">
+                {compactNumber(totalExchanges)}
+              </span>
+            </p>
+          </div>
+        </article>
+
+        <article className="min-h-[200px] min-w-[200px] rounded-xl bg-foreground/60 dark:bg-foreground-dark/70 flex-grow-0 flex-shrink-0 basis-full snap-start lg:flex-1 shadow-[0_2px_12px_-2px] shadow-secondary-foreground dark:shadow-secondary-dark p-1.5 ">
           <div>
             <h4>Crypto market volume over the last 24 hours</h4>
-            <p className="font-semibold">{compactNumber(total24hVolume)}</p>
+            <p className="font-medium">{compactNumber(2090990)}</p>
+          </div>
+        </article>
+
+        <article className="min-h-[200px] min-w-[200px] rounded-xl bg-foreground/60 dark:bg-foreground-dark/70 flex-grow-0 flex-shrink-0 basis-full snap-start lg:flex-1 shadow-[0_2px_12px_-2px] shadow-secondary-foreground dark:shadow-secondary-dark p-1.5 ">
+          <div>
+            <h4>Crypto market volume over the last 24 hours</h4>
+            <p className="font-semibold">{compactNumber(2090990)}</p>
           </div>
         </article>
       </section>

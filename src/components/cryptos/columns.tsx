@@ -86,7 +86,7 @@ export const columns: ColumnDef<Coin>[] = [
   },
   {
     accessorKey: 'change',
-    header: '24%',
+    header: '24h%',
     cell: ({ row }) => {
       const change = parseFloat(row.getValue('change'))
         .toString()
