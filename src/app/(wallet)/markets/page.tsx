@@ -3,7 +3,7 @@ import MarketsHeader from '@/components/MarketsHeader';
 import { getCryptoData } from '@/lib/getCoinsData';
 import { Metadata } from 'next';
 
-const metadata: Metadata = {
+export const metadata: Metadata = {
   title: 'Markets | Coin Wallet',
   description: 'Search for coins in realtime crypto markets.',
 };

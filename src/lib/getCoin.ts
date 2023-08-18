@@ -1,10 +1,10 @@
-export async function getCryptoData() {
+export async function getCoin(coinId: string) {
   const apiKey = process.env.NEXT_PUBLIC_CRYPTOAPIKEY;
 
   if (!apiKey) throw new Error('APi key is missing');
 
   const res = await fetch(
-    'https://coinranking1.p.rapidapi.com/coins?referenceCurrencyUuid=yhjMzLPhuIDl&timePeriod=24h&tiers%5B0%5D=1&orderBy=marketCap&orderDirection=desc&limit=50&offset=0',
+    `https://coinranking1.p.rapidapi.com/coin/${coinId}?referenceCurrencyUuid=yhjMzLPhuIDl&timePeriod=24h`,
     {
       method: 'GET',
       headers: {
@@ -14,7 +14,7 @@ export async function getCryptoData() {
     }
   );
 
-  if (!res) throw new Error('Failed to fetch coins data');
+  if (!res) throw new Error('Failed to fetch coin data');
 
   return res.json();
 }

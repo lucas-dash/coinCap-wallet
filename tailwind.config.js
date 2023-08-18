@@ -29,6 +29,9 @@ module.exports = {
       transitionDuration: {
         1500: '1500ms',
       },
+      boxShadow: {
+        base: '0 2px 13px 0',
+      },
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out',

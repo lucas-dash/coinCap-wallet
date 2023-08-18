@@ -32,3 +32,43 @@ type Coin = {
   ['24hVolume']: string;
   btcPrice: string;
 };
+
+type CoinData = {
+  data: {
+    coin: CoinId;
+  };
+};
+
+type CoinId = {
+  uuid: string;
+  symbol: string;
+  name: string;
+  description: string;
+  color: string;
+  iconUrl: string;
+  websiteUrl: string;
+  links: {
+    name: string;
+    url: string;
+    type: string;
+  }[];
+  supply: {
+    confirmed: boolean;
+    circulating: string;
+    total: string;
+  };
+  '24hVolume': string;
+  marketCap: string;
+  price: string;
+  btcPrice: string;
+  change: string;
+  rank: number;
+  numberOfMarkets: number;
+  numberOfExchanges: number;
+  sparkline: string[];
+  allTimeHigh: {
+    price: string;
+    timestamp: number;
+  };
+  coinrankingUrl: string;
+};

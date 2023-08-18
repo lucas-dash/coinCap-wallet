@@ -16,6 +16,8 @@ import {
   ChevronDown,
   Search,
   Coins,
+  PlusCircle,
+  Plus,
 } from 'lucide-react';
 
 export const Icons = {
@@ -35,6 +37,7 @@ export const Icons = {
   trendDown: ChevronDown,
   search: Search,
   coins: Coins,
+  add: Plus,
   google: (props: LucideProps) => (
     <svg {...props} viewBox="0 0 24 24">
       <path
