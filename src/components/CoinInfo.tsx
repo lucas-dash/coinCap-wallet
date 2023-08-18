@@ -48,6 +48,19 @@ export default function CoinInfo({
           </div>
 
           <div className="flex items-center justify-between">
+            <h6 className=" text-typography-detail dark:text-typography-detail-dark">
+              Max Supply:
+            </h6>
+            {supply.max ? (
+              <p className="font-medium">
+                {compactNumber(supply.max)} {symbol}
+              </p>
+            ) : (
+              <p className="font-medium">&infin;</p>
+            )}
+          </div>
+
+          <div className="flex items-center justify-between">
             <h6 className="text-typography-detail dark:text-typography-detail-dark">
               Rank:
             </h6>

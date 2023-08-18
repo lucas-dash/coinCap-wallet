@@ -1,3 +1,5 @@
+import LoadBall from '@/components/ui/LoadBall';
+
 export default function WalletLoading() {
-  return <div className="text-3xl">Loading...</div>;
+  return <LoadBall />;
 }

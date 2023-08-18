@@ -54,6 +54,7 @@ type CoinId = {
   }[];
   supply: {
     confirmed: boolean;
+    max: string;
     circulating: string;
     total: string;
   };

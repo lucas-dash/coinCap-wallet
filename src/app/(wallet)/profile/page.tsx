@@ -1,5 +1,6 @@
 import UserInfo from '@/components/UserInfo';
 import LoadBall from '@/components/ui/LoadBall';
+import { Skeleton } from '@/components/ui/skeleton';
 import { Metadata } from 'next';
 import { Suspense } from 'react';
 
@@ -14,7 +15,11 @@ export default function Profile() {
       <h3 className="text-xl font-medium p-2 pb-3 text-center md:text-left">
         Your Profile
       </h3>
-      <Suspense fallback={<LoadBall />}>
+      <Suspense
+        fallback={
+          <Skeleton className="h-[300px] rounded-lg bg-slate-200 dark:bg-slate-400" />
+        }
+      >
         <UserInfo />
       </Suspense>
     </section>
