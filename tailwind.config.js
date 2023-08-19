@@ -30,7 +30,7 @@ module.exports = {
         1500: '1500ms',
       },
       boxShadow: {
-        base: '0 2px 13px 0',
+        base: '0 2px 10px 0',
       },
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',

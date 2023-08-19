@@ -18,6 +18,9 @@ import {
   Coins,
   Plus,
   ChevronLeft,
+  Repeat,
+  CreditCard,
+  DollarSign,
 } from 'lucide-react';
 
 export const Icons = {
@@ -38,7 +41,10 @@ export const Icons = {
   search: Search,
   coins: Coins,
   add: Plus,
+  transfer: Repeat,
   back: ChevronLeft,
+  card: CreditCard,
+  money: DollarSign,
   google: (props: LucideProps) => (
     <svg {...props} viewBox="0 0 24 24">
       <path
