@@ -5,6 +5,7 @@ import WalletOverview from '@/components/WalletOverview';
 import { Button } from '@/components/ui/Button';
 import Transactions from '@/components/Transactions';
 import { Metadata } from 'next';
+import Link from 'next/link';
 
 export const metadata: Metadata = {
   title: 'Portfolio | Coin Wallet',
@@ -17,10 +18,12 @@ export default function Portfolio() {
       <div className="flex flex-col sm:flex-row items-center gap-2">
         <h5 className="font-medium">Quick Actions:</h5>
         <div className="flex flex-wrap items-center justify-center gap-2">
-          <Button size={'sm'} variant={'default'} className="rounded-xl">
-            <Icons.add className="mr-2" size={20} />
-            Add Transaction
-          </Button>
+          <Link href={'/portfolio/add-transaction'}>
+            <Button size={'sm'} variant={'default'} className="rounded-xl">
+              <Icons.add className="mr-2" size={20} />
+              Add Transaction
+            </Button>
+          </Link>
           <Button size={'sm'} variant={'outline'} className="rounded-xl">
             <Icons.transfer className="mr-2" size={20} />
             New Transfer

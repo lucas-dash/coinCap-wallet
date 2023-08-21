@@ -22,6 +22,7 @@ import { useToast } from '@/components/ui/use-toast';
 import { useState } from 'react';
 import { FirebaseError } from 'firebase/app';
 import { Icons } from '@/components/Icons';
+import { addUserData } from '@/firebase/db';
 
 const signUpSchema = z
   .object({
@@ -59,6 +60,12 @@ export default function SignUp() {
     const { result, error } = await signUp(data.email, data.password);
 
     if (result) {
+      await addUserData(result.user.uid, {
+        avatar: null,
+        watchlist: [],
+        wallet: { transactions: [] },
+      });
+
       router.push('/dashboard');
       toast({
         title: `Succesfully sign up as ${result.user.email}`,

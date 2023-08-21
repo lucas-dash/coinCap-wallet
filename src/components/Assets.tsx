@@ -18,7 +18,10 @@ export default function Assets() {
               height={220}
             />
           </div>
-          <h4>No Assets yet.</h4>
+          <h4 className="text-lg font-semibold">No Assets</h4>
+          <p className="text-typography-detail dark:text-typography-detail-dark text-center">
+            You don&apos;t own any assets yet.
+          </p>
           <Button variant={'accent'} size={'sm'} className="rounded-lg">
             <Icons.add size={20} />
             Add
