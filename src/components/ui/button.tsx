@@ -5,7 +5,7 @@ import { cva, type VariantProps } from 'class-variance-authority';
 import { cn } from '@/lib/utils';
 
 const buttonVariants = cva(
-  'inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-400 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 dark:ring-offset-slate-950 dark:focus-visible:ring-slate-800',
+  'inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-400 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 dark:ring-offset-slate-300 dark:focus-visible:ring-slate-800',
   {
     variants: {
       variant: {
@@ -14,14 +14,14 @@ const buttonVariants = cva(
         destructive:
           'bg-red-500 text-slate-50 hover:bg-red-500/90 dark:bg-red-700 dark:text-red-50 dark:hover:bg-red-700/90',
         outline:
-          'border border-secondary bg-white hover:bg-slate-100 hover:text-typography dark:border-secondary-dark dark:bg-foreground-dark dark:hover:bg-slate-800 dark:hover:text-typography-dark',
+          'border border-secondary bg-transparent hover:bg-secondary hover:text-typography-dark dark:border-secondary-dark dark:bg-transparent dark:hover:bg-secondary-dark dark:hover:text-typography-dark',
         secondary:
           'bg-secondary-foreground text-typography-dark hover:bg-secondary-foreground/80 dark:bg-secondary-foreground-dark dark:text-typography dark:hover:bg-secondary-foreground-dark/80',
         ghost:
           'hover:bg-foreground hover:text-typography dark:hover:bg-slate-900 dark:hover:text-typography-dark',
         link: 'text-typography underline-offset-4 hover:underline dark:text-typography-dark',
         accent:
-          'bg-gradient-to-tl from-accent dark:from-accent-dark hover:from-10% to-secondary hover:to-60% dark:to-secondary-dark text-typography-dark rounded-xl text-base',
+          'bg-gradient-to-tl from-secondary-foreground dark:from-accent-dark hover:from-10% to-secondary hover:to-60% dark:to-secondary-dark text-typography-dark rounded-xl text-base',
       },
       size: {
         default: 'h-10 px-4 py-2',

@@ -3,15 +3,16 @@ type UserCollection = {
   wallet: {
     transactions: Transaction[];
   };
-  watchlist: [];
+  watchlist: Coin[];
 };
 
-interface Transaction {
+type Transaction = {
+  id: string;
   coin: string;
-  coinValue: number;
+  amount: number;
   pricePerCoin: number;
   date: string;
-  fee: number;
-  note: string;
-  type: string;
-}
+  fee: number | undefined;
+  note: string | undefined;
+  type: 'Deposit' | 'Withraw' | 'Transfer';
+};

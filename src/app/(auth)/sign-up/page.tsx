@@ -69,6 +69,7 @@ export default function SignUp() {
       router.push('/dashboard');
       toast({
         title: `Succesfully sign up as ${result.user.email}`,
+        variant: 'success',
       });
       form.reset();
       setLoading(false);

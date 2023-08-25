@@ -72,6 +72,7 @@ export default function Login() {
       router.push('/dashboard');
       toast({
         title: `Succesfully login as ${result.user.email}`,
+        variant: 'success',
       });
       form.reset();
       setLoading(false);

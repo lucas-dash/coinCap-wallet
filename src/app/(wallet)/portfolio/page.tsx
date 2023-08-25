@@ -18,12 +18,17 @@ export default function Portfolio() {
       <div className="flex flex-col sm:flex-row items-center gap-2">
         <h5 className="font-medium">Quick Actions:</h5>
         <div className="flex flex-wrap items-center justify-center gap-2">
-          <Link href={'/portfolio/add-transaction'}>
-            <Button size={'sm'} variant={'default'} className="rounded-xl">
+          <Button
+            size={'sm'}
+            className="rounded-xl shadow-base shadow-secondary-dark/60 dark:shadow-secondary/60"
+            asChild
+          >
+            <Link href={'/portfolio/add-transaction'}>
               <Icons.add className="mr-2" size={20} />
               Add Transaction
-            </Button>
-          </Link>
+            </Link>
+          </Button>
+
           <Button size={'sm'} variant={'outline'} className="rounded-xl">
             <Icons.transfer className="mr-2" size={20} />
             New Transfer

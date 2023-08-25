@@ -12,7 +12,7 @@ type MobileNavProps = {
 
 export default function MobileNav({ close }: MobileNavProps) {
   return (
-    <section className="absolute inset-0 z-40 bg-primary/90 dark:bg-primary-dark/90 backdrop-blur-sm min-h-screen md:hidden p-2 flex flex-col items-end">
+    <section className="fixed inset-0 z-40 bg-primary/95 dark:bg-primary-dark/95 min-h-screen md:hidden p-2 flex flex-col items-end">
       <Button
         variant={'ghost'}
         size={'icon'}
