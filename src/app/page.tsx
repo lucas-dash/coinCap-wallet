@@ -1,5 +1,5 @@
 import Navbar from '@/components/layouts/Navbar';
-import { Button } from '@/components/ui/Button';
+import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 
 export default function Home() {

@@ -1,7 +1,7 @@
 'use client';
 
 import { Dispatch, SetStateAction } from 'react';
-import { Button } from '../ui/Button';
+import { Button } from '../ui/button';
 import { Icons } from '../Icons';
 import NavLink from '../NavLink';
 import LogOut from '../LogOut';

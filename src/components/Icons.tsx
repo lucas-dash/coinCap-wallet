@@ -26,6 +26,9 @@ import {
   PenLine,
   CalendarIcon,
   Check,
+  MoreHorizontal,
+  Trash,
+  Settings2,
 } from 'lucide-react';
 
 export const Icons = {
@@ -55,6 +58,9 @@ export const Icons = {
   note: PenLine,
   date: CalendarIcon,
   succes: Check,
+  more: MoreHorizontal,
+  delete: Trash,
+  edit: Settings2,
   google: (props: LucideProps) => (
     <svg {...props} viewBox="0 0 24 24">
       <path

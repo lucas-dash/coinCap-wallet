@@ -8,7 +8,7 @@ import { db } from '@/firebase/config';
 export default function useDatabase() {
   const user = useAuthContext();
 
-  const [data, setData] = useState<UserCollection | undefined>();
+  const [userData, setUserData] = useState<UserCollection | undefined>();
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
 
@@ -19,11 +19,11 @@ export default function useDatabase() {
         (snapshot) => {
           if (snapshot.exists()) {
             const dbData = snapshot.data();
-            setData(dbData as UserCollection);
+            setUserData(dbData as UserCollection);
             setLoading(false);
           } else {
             console.log('no data is there');
-            setData(undefined);
+            setUserData(undefined);
             setError('Failed to read data!');
           }
         },
@@ -37,5 +37,5 @@ export default function useDatabase() {
     }
   }, [user]);
 
-  return { data, loading, error };
+  return { userData, loading, error };
 }

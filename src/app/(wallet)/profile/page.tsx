@@ -17,7 +17,7 @@ export default function Profile() {
       </h3>
       <Suspense
         fallback={
-          <Skeleton className="h-[300px] rounded-lg bg-slate-200 dark:bg-slate-400" />
+          <Skeleton className="h-[300px] rounded-lg bg-slate-300 dark:bg-slate-400" />
         }
       >
         <UserInfo />

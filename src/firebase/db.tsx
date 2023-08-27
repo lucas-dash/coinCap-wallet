@@ -1,5 +1,5 @@
 import { User } from 'firebase/auth';
-import { db } from './config';
+import { auth, db } from './config';
 import { doc, getDoc, setDoc, updateDoc } from 'firebase/firestore';
 
 export async function addUserData(id: string, data: UserCollection) {
@@ -13,9 +13,10 @@ export async function addUserData(id: string, data: UserCollection) {
   return { error };
 }
 
-export async function addTransaction(transaction: Transaction, id: User) {
+export async function addTransaction(transaction: Transaction, user: User) {
+  let error = null;
   try {
-    const userRef = doc(db, 'users', id.uid);
+    const userRef = doc(db, 'users', user.uid);
     const userDoc = await getDoc(userRef);
     const userData = userDoc.data() as UserCollection;
 
@@ -24,10 +25,45 @@ export async function addTransaction(transaction: Transaction, id: User) {
     await updateDoc(userRef, {
       'wallet.transactions': updatedTransactions,
     });
-  } catch (error) {
-    console.log(error);
+  } catch (e) {
+    console.log(e);
+    error = e;
   }
+  return { error };
 }
 
 // update
+export async function updatedTransaction(id: string, user: User) {
+  try {
+    const userRef = doc(db, 'users', user.uid);
+    const userDoc = await getDoc(userRef);
+    const userData = userDoc.data() as UserCollection;
+
+    const updateTransaction = userData?.wallet.transactions.find(
+      (transaction) => transaction.id === id
+    );
+  } catch (e) {
+    console.log(e);
+  }
+}
 // delete
+export async function deleteTransaction(id: string) {
+  try {
+    const user = auth.currentUser;
+    if (user) {
+      const userRef = doc(db, 'users', user.uid);
+      const userDoc = await getDoc(userRef);
+      const userData = userDoc.data() as UserCollection;
+
+      const updatedTransactions = userData?.wallet.transactions.filter(
+        (transaction) => transaction.id !== id
+      );
+
+      await updateDoc(userRef, {
+        'wallet.transactions': updatedTransactions,
+      });
+    }
+  } catch (e) {
+    console.log(e);
+  }
+}

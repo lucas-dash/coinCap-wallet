@@ -32,16 +32,20 @@ import {
   PopoverTrigger,
 } from '@/components/ui/popover';
 import { Input } from '@/components/ui/Input';
-import { Button } from '@/components/ui/Button';
+import { Button } from '@/components/ui/button';
 import { Icons } from '../Icons';
 
 import { transactionSchema } from '@/lib/validations/transactionSchema';
 import { useAuthContext } from '@/hooks/useAuth';
 import { addTransaction } from '@/firebase/db';
 
-export default function ActionForm() {
-  const [loading, setLoading] = useState<boolean>(false);
-  const [type, setType] = useState<'Deposit' | 'Withraw'>('Deposit');
+type ActionFormProps = {
+  coins: Coin[];
+};
+
+export default function ActionForm({ coins }: ActionFormProps) {
+  const [saving, setSaving] = useState<boolean>(false);
+  const [type, setType] = useState<'Deposit' | 'Withdraw'>('Deposit');
   const router = useRouter();
   const { toast } = useToast();
   const user = useAuthContext();
@@ -57,7 +61,7 @@ export default function ActionForm() {
   });
 
   async function depositMoney(data: z.infer<typeof transactionSchema>) {
-    setLoading(true);
+    setSaving(true);
 
     const depositData: Transaction = {
       id: nanoid(),
@@ -70,9 +74,17 @@ export default function ActionForm() {
       type: 'Deposit',
     };
 
-    await addTransaction(depositData, user!);
+    const { error } = await addTransaction(depositData, user!);
 
-    setLoading(false);
+    if (error) {
+      toast({
+        title: 'Something went wrong',
+        description: 'The transaction did not take place',
+        variant: 'destructive',
+      });
+    }
+
+    setSaving(false);
     toast({
       title: 'The deposit was successful',
       variant: 'success',
@@ -83,7 +95,7 @@ export default function ActionForm() {
   }
 
   async function withrawMoney(data: z.infer<typeof transactionSchema>) {
-    setLoading(true);
+    setSaving(true);
 
     const withrawData: Transaction = {
       id: nanoid(),
@@ -93,12 +105,21 @@ export default function ActionForm() {
       date: format(data.date, 'dd/MM/yyy'),
       fee: Number(data.fee),
       note: data.note,
-      type: 'Withraw',
+      type: 'Withdraw',
     };
 
-    await addTransaction(withrawData, user!);
+    const { error } = await addTransaction(withrawData, user!);
 
-    setLoading(false);
+    if (error) {
+      setSaving(false);
+      toast({
+        title: 'Something went wrong',
+        description: 'The transaction did not take place',
+        variant: 'destructive',
+      });
+    }
+
+    setSaving(false);
     toast({
       title: 'The withraw was successful',
       variant: 'success',
@@ -124,7 +145,7 @@ export default function ActionForm() {
           size={'sm'}
           variant={type === 'Deposit' ? 'ghost' : 'secondary'}
           className="h-6"
-          onClick={() => setType('Withraw')}
+          onClick={() => setType('Withdraw')}
         >
           Withraw
         </Button>
@@ -307,9 +328,9 @@ export default function ActionForm() {
               type="submit"
               size={'sm'}
               className="w-full max-w-[310px] rounded-xl bg-transparent dark:bg-transparent border-2 border-input dark:border-input-dark hover:border-0 text-typography hover:text-typography-dark dark:text-typography-dark dark:hover:text-typography hover:bg-gradient-to-r from-secondary-foreground dark:from-accent-dark to-secondary dark:to-secondary-dark"
-              disabled={loading}
+              disabled={saving}
             >
-              {loading ? (
+              {saving ? (
                 <Icons.loading className="mr-2 h-4 w-4 animate-spin" />
               ) : type === 'Deposit' ? (
                 <Icons.deposit className="mr-2 h-5 w-5" />

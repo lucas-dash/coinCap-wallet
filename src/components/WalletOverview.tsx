@@ -1,6 +1,6 @@
 import { currencyFormat } from '@/lib/functions';
 import { Icons } from './Icons';
-import { Button } from './ui/Button';
+import { Button } from './ui/button';
 
 export default function WalletOverview() {
   return (

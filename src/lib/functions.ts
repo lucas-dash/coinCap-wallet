@@ -23,6 +23,7 @@ export function transactionFormat(payment: number | string) {
     style: 'currency',
     currency: 'USD',
     minimumFractionDigits: 2,
+    maximumFractionDigits: 8,
   });
 
   if (typeof payment === 'number') return formatted.format(payment);

@@ -1,7 +1,7 @@
 'use client';
 
 import { ColumnDef } from '@tanstack/react-table';
-import { Button } from '../ui/Button';
+import { Button } from '../ui/button';
 import { Icons } from '../Icons';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -77,11 +77,6 @@ export const columns: ColumnDef<Coin>[] = [
     header: 'Price',
     cell: ({ row }) => {
       const marketCap = parseFloat(row.getValue('price'));
-      // const formatted = new Intl.NumberFormat('en-US', {
-      //   style: 'currency',
-      //   currency: 'USD',
-      // }).format(marketCap);
-
       const formatted = currencyFormat(marketCap);
 
       return <div>{formatted}</div>;

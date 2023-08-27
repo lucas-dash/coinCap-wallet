@@ -2,7 +2,7 @@
 
 import { useRouter } from 'next/navigation';
 import { Icons } from './Icons';
-import { Button } from './ui/Button';
+import { Button } from './ui/button';
 import { logOut } from '@/firebase/auth';
 import { useToast } from './ui/use-toast';
 

@@ -12,7 +12,7 @@ type Transaction = {
   amount: number;
   pricePerCoin: number;
   date: string;
-  fee: number | undefined;
-  note: string | undefined;
-  type: 'Deposit' | 'Withraw' | 'Transfer';
+  fee: number;
+  note: string;
+  type: 'Deposit' | 'Withdraw' | 'Transfer';
 };

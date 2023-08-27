@@ -2,7 +2,7 @@ import Assets from '@/components/Assets';
 import Holding from '@/components/Holding';
 import { Icons } from '@/components/Icons';
 import WalletOverview from '@/components/WalletOverview';
-import { Button } from '@/components/ui/Button';
+import { Button } from '@/components/ui/button';
 import Transactions from '@/components/Transactions';
 import { Metadata } from 'next';
 import Link from 'next/link';

@@ -10,6 +10,6 @@ export const transactionSchema = z.object({
     }),
   pricePerCoin: z.string().nonempty({ message: 'Required Price.' }),
   date: z.date(),
-  fee: z.string().trim().optional(),
-  note: z.string().max(20).trim().optional(),
+  fee: z.string().trim(),
+  note: z.string().max(20).trim(),
 });

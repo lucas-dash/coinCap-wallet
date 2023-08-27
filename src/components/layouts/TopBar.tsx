@@ -1,7 +1,7 @@
 import ModeToggle from '@/components/ui/ModeToggle';
 import Link from 'next/link';
 import { Icons } from '../Icons';
-import { Button } from '../ui/Button';
+import { Button } from '../ui/button';
 import NavSwitcher from './NavSwitcher';
 
 export default function TopBar() {

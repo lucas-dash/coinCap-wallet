@@ -1,7 +1,7 @@
 'use client';
 
 import { useAuthContext } from '@/hooks/useAuth';
-import { Button } from './ui/Button';
+import { Button } from './ui/button';
 import { User } from 'firebase/auth';
 import { deleteUserAccount } from '@/firebase/auth';
 import { useRouter } from 'next/navigation';

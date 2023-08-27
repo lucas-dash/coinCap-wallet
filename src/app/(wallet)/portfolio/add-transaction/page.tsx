@@ -1,10 +1,12 @@
 import { Icons } from '@/components/Icons';
 import ActionForm from '@/components/transaction/ActionForm';
-import { Button } from '@/components/ui/Button';
+import { Button } from '@/components/ui/button';
+import { getCryptoData } from '@/lib/getCoinsData';
 import Link from 'next/link';
 
 export default async function AddTransaction() {
-  // fetch coin symbol
+  const coinsRes: Promise<CryptoData> = await getCryptoData();
+  const coinsData = await coinsRes;
 
   return (
     <section className="h-full bg-foreground/70 backdrop-blur-sm dark:bg-foreground-dark/60 rounded-2xl 2xl:container p-2 ">
@@ -18,7 +20,7 @@ export default async function AddTransaction() {
       </div>
 
       <section>
-        <ActionForm />
+        <ActionForm coins={coinsData?.data.coins} />
       </section>
     </section>
   );
