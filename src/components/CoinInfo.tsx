@@ -1,4 +1,4 @@
-import { Button } from './ui/Button';
+import { Button } from './ui/button';
 import { Icons } from './Icons';
 import { transactionFormat, compactNumber } from '@/lib/functions';
 import Link from 'next/link';

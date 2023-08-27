@@ -2,7 +2,7 @@ import CoinChart from '@/components/CoinChart';
 import CoinHeader from '@/components/CoinHeader';
 import CoinInfo from '@/components/CoinInfo';
 import { Icons } from '@/components/Icons';
-import { Button } from '@/components/ui/Button';
+import { Button } from '@/components/ui/button';
 import { getCoin } from '@/lib/getCoin';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';

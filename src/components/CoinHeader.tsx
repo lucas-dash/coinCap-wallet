@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import { Icons } from './Icons';
-import { Button } from './ui/Button';
+import { Button } from './ui/button';
 import { currencyFormat } from '@/lib/functions';
 
 export default function CoinHeader({
