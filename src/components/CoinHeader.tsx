@@ -48,7 +48,7 @@ export default function CoinHeader({
           }`}
         >
           {changeIcon}
-          {`${change} (24h)`}
+          {`${change}% (24h)`}
         </p>
       </div>
     </section>

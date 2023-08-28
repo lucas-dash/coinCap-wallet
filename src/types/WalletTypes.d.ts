@@ -8,11 +8,18 @@ type UserCollection = {
 
 type Transaction = {
   id: string;
-  coin: string;
+  name: string;
+  coinDetail: TrasactionCoin;
   amount: number;
   pricePerCoin: number;
   date: string;
   fee: number;
   note: string;
-  type: 'Deposit' | 'Withdraw' | 'Transfer';
+  type: 'Deposit' | 'Withdraw';
+};
+
+type TransactionCoin = {
+  url: string;
+  symbol: string;
+  image: string;
 };

@@ -1,22 +1,27 @@
+import Image from 'next/image';
 import { Progress } from '../ui/progress';
 
 export default function Asset({
   coin,
   amount,
   percentage,
+  name,
 }: {
-  coin: string;
+  coin: TransactionCoin;
   amount: number;
   percentage: number;
+  name: string;
 }) {
   return (
     <article className="flex flex-col">
       <div className="flex items-center justify-between">
         <div className="inline-flex items-center gap-2">
-          <div className="h-8 w-8 bg-emerald-500 rounded-full"></div>
-          <h6 className="font-semibold">{coin}</h6>
+          <Image src={coin.image} alt={name} width={30} height={30} />
+          <h6 className="font-semibold">{name}</h6>
         </div>
-        <p className="font-medium">{amount}</p>
+        <p className="font-medium">
+          {amount} {coin.symbol}
+        </p>
       </div>
       <div className="inline-flex items-center gap-5">
         <Progress

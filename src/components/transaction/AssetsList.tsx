@@ -21,30 +21,33 @@ export default function AssetsList() {
 
   const totalAssets = useMemo(() => {
     if (transactionData) {
-      const coinAmounts: Record<string, number> = {};
+      const coinAmounts: Record<
+        string,
+        { amount: number; coin: TransactionCoin; name: string }
+      > = {};
 
       transactionData.forEach((transaction) => {
-        const { coin, amount, type } = transaction;
+        const { coinDetail, amount, type, name } = transaction;
 
-        if (coinAmounts[coin]) {
-          if (type === 'Withdraw') {
-            coinAmounts[coin] -= amount;
-          } else {
-            coinAmounts[coin] += amount;
-          }
+        if (!coinAmounts[name]) {
+          coinAmounts[name] = { amount: 0, coin: coinDetail, name: name };
+        }
+
+        if (type === 'Withdraw') {
+          coinAmounts[name].amount -= amount;
         } else {
-          coinAmounts[coin] = amount;
+          coinAmounts[name].amount += amount;
         }
       });
 
-      const coinAmountsArray = Object.entries(coinAmounts).map(
-        ([coin, amount]) => ({
+      const coinAmountsArray = Object.values(coinAmounts).map(
+        ({ coin, amount, name }) => ({
           coin,
-          amount,
+          amount: amount,
+          name,
         })
       );
 
-      // Celková hodnota portfolia
       const totalPortfolioValue = coinAmountsArray.reduce(
         (total, coinAmount) => total + coinAmount.amount,
         0
@@ -56,6 +59,7 @@ export default function AssetsList() {
           coin: coinAmount.coin,
           amount: coinAmount.amount,
           percentage: Number(percentage.toFixed(2)),
+          name: coinAmount.name,
         };
       });
 

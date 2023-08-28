@@ -38,6 +38,7 @@ import { Icons } from '../Icons';
 import { transactionSchema } from '@/lib/validations/transactionSchema';
 import { useAuthContext } from '@/hooks/useAuth';
 import { addTransaction } from '@/firebase/db';
+import { ScrollArea } from '../ui/scroll-area';
 
 type ActionFormProps = {
   coins: Coin[];
@@ -60,68 +61,47 @@ export default function ActionForm({ coins }: ActionFormProps) {
     },
   });
 
-  async function depositMoney(data: z.infer<typeof transactionSchema>) {
+  const coinToTransaction = (
+    allCoins: Coin[],
+    formData: z.infer<typeof transactionSchema>
+  ) => {
+    const findingCoin = allCoins.find((coin) => coin.name === formData.coin)!;
+
+    return {
+      url: findingCoin?.uuid,
+      symbol: findingCoin?.symbol,
+      image: findingCoin?.iconUrl,
+    };
+  };
+
+  async function submitTransaction(data: z.infer<typeof transactionSchema>) {
     setSaving(true);
 
-    const depositData: Transaction = {
+    const transactionData: Transaction = {
       id: nanoid(),
-      coin: data.coin,
+      name: data.coin,
+      coinDetail: coinToTransaction(coins, data),
       amount: Number(data.amount),
       pricePerCoin: Number(data.pricePerCoin),
       date: format(data.date, 'dd/MM/yyy'),
       fee: Number(data.fee),
       note: data.note,
-      type: 'Deposit',
+      type: type,
     };
 
-    const { error } = await addTransaction(depositData, user!);
+    const { error } = await addTransaction(transactionData, user!);
 
-    if (error) {
+    error &&
       toast({
         title: 'Something went wrong',
         description: 'The transaction did not take place',
         variant: 'destructive',
       });
-    }
 
     setSaving(false);
+
     toast({
-      title: 'The deposit was successful',
-      variant: 'success',
-    });
-
-    router.push('/portfolio');
-    form.reset();
-  }
-
-  async function withrawMoney(data: z.infer<typeof transactionSchema>) {
-    setSaving(true);
-
-    const withrawData: Transaction = {
-      id: nanoid(),
-      coin: data.coin,
-      amount: Number(data.amount),
-      pricePerCoin: Number(data.pricePerCoin),
-      date: format(data.date, 'dd/MM/yyy'),
-      fee: Number(data.fee),
-      note: data.note,
-      type: 'Withdraw',
-    };
-
-    const { error } = await addTransaction(withrawData, user!);
-
-    if (error) {
-      setSaving(false);
-      toast({
-        title: 'Something went wrong',
-        description: 'The transaction did not take place',
-        variant: 'destructive',
-      });
-    }
-
-    setSaving(false);
-    toast({
-      title: 'The withraw was successful',
+      title: `The ${type} Was Successful`,
       variant: 'success',
     });
 
@@ -154,9 +134,7 @@ export default function ActionForm({ coins }: ActionFormProps) {
       <article className="bg-slate-200 dark:bg-slate-900 w-full rounded-xl max-w-xl mx-auto shadow-base shadow-shadow/30 dark:shadow-shadow-dark/30 mb-3">
         <Form {...form}>
           <form
-            onSubmit={form.handleSubmit(
-              type === 'Deposit' ? depositMoney : withrawMoney
-            )}
+            onSubmit={form.handleSubmit(submitTransaction)}
             className="w-full space-y-3 p-5 flex items-center justify-center flex-col"
           >
             <FormField
@@ -166,19 +144,30 @@ export default function ActionForm({ coins }: ActionFormProps) {
                 <FormItem>
                   <Select
                     onValueChange={field.onChange}
-                    // defaultValue={field.value}
+                    defaultValue={field.value}
                   >
                     <FormControl>
                       <SelectTrigger className="rounded-xl border border-input dark:border-input-dark bg-foreground dark:bg-foreground-dark w-max min-w-[200px]">
                         <SelectValue placeholder="Select Coin" />
                       </SelectTrigger>
                     </FormControl>
-                    <SelectContent>
-                      <SelectItem aria-label="bitcoin" value={'Bitcoin'}>
-                        Bitcoin BTC
-                      </SelectItem>
-                      <SelectItem value="ethereum">Ethereum ETH</SelectItem>
-                      <SelectItem value="solana">Solana SOL</SelectItem>
+                    <SelectContent align="center" className="rounded-lg">
+                      <ScrollArea className="h-72 w-52 rounded-md">
+                        {coins?.map((coin) => {
+                          return (
+                            <SelectItem
+                              key={coin.uuid}
+                              value={coin.name}
+                              aria-label={coin.name}
+                            >
+                              {coin.name}
+                              <span className="text-typography-detail dark:text-typography-detail-dark ml-1.5">
+                                {coin.symbol}
+                              </span>
+                            </SelectItem>
+                          );
+                        })}
+                      </ScrollArea>
                     </SelectContent>
                   </Select>
                   <FormMessage className="text-center" />

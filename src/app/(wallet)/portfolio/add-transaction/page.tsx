@@ -5,8 +5,8 @@ import { getCryptoData } from '@/lib/getCoinsData';
 import Link from 'next/link';
 
 export default async function AddTransaction() {
-  const coinsRes: Promise<CryptoData> = await getCryptoData();
-  const coinsData = await coinsRes;
+  const coins: Promise<CryptoData> = await getCryptoData();
+  const coinData = await coins;
 
   return (
     <section className="h-full bg-foreground/70 backdrop-blur-sm dark:bg-foreground-dark/60 rounded-2xl 2xl:container p-2 ">
@@ -20,7 +20,7 @@ export default async function AddTransaction() {
       </div>
 
       <section>
-        <ActionForm coins={coinsData?.data.coins} />
+        <ActionForm coins={coinData?.data.coins} />
       </section>
     </section>
   );

@@ -27,8 +27,8 @@ export default function TransactionList() {
           image="/noTransaction.svg"
           title="No Transaction"
           description="You haven't completed any transactions yet."
-          height={100}
-          width={100}
+          height={120}
+          width={120}
         />
       ) : (
         <TransactionDataTable

@@ -60,9 +60,9 @@ export function TransactionDataTable<TData, TValue>({
       <div className="flex justify-end items-center gap-2 my-2 rounded-lg mx-2 sm:mx-5">
         <Input
           placeholder="Filter coins..."
-          value={(table.getColumn('coin')?.getFilterValue() as string) ?? ''}
+          value={(table.getColumn('name')?.getFilterValue() as string) ?? ''}
           onChange={(event) =>
-            table.getColumn('coin')?.setFilterValue(event.target.value)
+            table.getColumn('name')?.setFilterValue(event.target.value)
           }
           className="max-w-sm rounded-xl h-8 bg-primary dark:bg-primary-dark border-input dark:border-input-dark placeholder:text-typography-detail dark:placeholder:text-typography-detail-dark"
         />

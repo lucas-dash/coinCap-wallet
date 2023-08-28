@@ -23,7 +23,7 @@ const EmptyState = ({
           width={width}
           height={height}
           priority={false}
-          className="w-auto h-auto aspect-video"
+          // className="w-auto h-auto aspect-video"
         />
       </div>
       <h4 className="text-lg font-semibold">{title}</h4>

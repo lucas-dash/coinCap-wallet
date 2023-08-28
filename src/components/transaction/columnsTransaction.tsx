@@ -15,6 +15,7 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
 import { deleteTransaction } from '@/firebase/db';
+import Image from 'next/image';
 
 export const columnsTransaction: ColumnDef<Transaction>[] = [
   {
@@ -53,18 +54,34 @@ export const columnsTransaction: ColumnDef<Transaction>[] = [
     },
   },
   {
-    accessorKey: 'coin',
+    accessorKey: 'name',
     header: 'Name',
     cell: ({ row }) => {
       const transaction = row.original;
 
+      const imageUrl = transaction.coinDetail.image.includes('?') ? (
+        <Icons.coins size={25} />
+      ) : (
+        <Image
+          src={transaction.coinDetail.image}
+          alt={transaction.name}
+          width={25}
+          height={25}
+        />
+      );
+
       return (
         <div className="flex gap-2 items-center">
+          {imageUrl}
+
           <Link
-            href={`markets/${transaction.coin}`}
+            href={`markets/${transaction.coinDetail.url}`}
             className="flex items-center gap-1 hover:underline-offset-2 hover:underline"
           >
-            {transaction.coin}
+            {transaction.name}
+            <span className="text-xs text-typography-detail dark:text-typography-detail-dark">
+              {transaction.coinDetail.symbol}
+            </span>
           </Link>
         </div>
       );
@@ -91,7 +108,7 @@ export const columnsTransaction: ColumnDef<Transaction>[] = [
         >
           <span>{tr.type === 'Deposit' ? '' : '-'}</span>
           <span className="">{tr.amount}</span>
-          <span className="pl-0.5">BTC</span>
+          <span className="pl-0.5">{tr.coinDetail.symbol}</span>
         </div>
       );
     },
