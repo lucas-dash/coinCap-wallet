@@ -21,7 +21,7 @@ const buttonVariants = cva(
           'hover:bg-foreground hover:text-typography dark:hover:bg-slate-900 dark:hover:text-typography-dark',
         link: 'text-typography underline-offset-4 hover:underline dark:text-typography-dark',
         accent:
-          'bg-gradient-to-tl from-secondary-foreground dark:from-accent-dark hover:from-10% to-secondary hover:to-60% dark:to-secondary-dark text-typography-dark rounded-xl text-base',
+          'bg-gradient-to-tl from-secondary-foreground dark:from-accent-dark hover:from-10% to-secondary hover:to-60% dark:to-secondary-dark text-typography-dark rounded-xl',
       },
       size: {
         default: 'h-10 px-4 py-2',

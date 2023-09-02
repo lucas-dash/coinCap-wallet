@@ -32,21 +32,39 @@ export async function addTransaction(transaction: Transaction, user: User) {
   return { error };
 }
 
-// update
-export async function updatedTransaction(id: string, user: User) {
+export async function updateTransaction(id: string, update: Transaction) {
+  let error = null;
   try {
-    const userRef = doc(db, 'users', user.uid);
-    const userDoc = await getDoc(userRef);
-    const userData = userDoc.data() as UserCollection;
+    const user = auth.currentUser;
+    if (user) {
+      const userRef = doc(db, 'users', user.uid);
+      const userDoc = await getDoc(userRef);
+      const userData = userDoc.data() as UserCollection;
 
-    const updateTransaction = userData?.wallet.transactions.find(
-      (transaction) => transaction.id === id
-    );
+      const searchTransaction = userData?.wallet.transactions.findIndex(
+        (transaction) => transaction.id === id
+      );
+
+      if (searchTransaction !== -1) {
+        userData.wallet.transactions[searchTransaction] = {
+          ...userData.wallet.transactions[searchTransaction],
+          ...update,
+        };
+
+        await updateDoc(userRef, {
+          wallet: userData.wallet,
+        });
+      } else {
+        error = `Transaction with ID ${id} not found.`;
+      }
+    }
   } catch (e) {
     console.log(e);
+    error = e;
   }
+  return { error };
 }
-// delete
+
 export async function deleteTransaction(id: string) {
   try {
     const user = auth.currentUser;

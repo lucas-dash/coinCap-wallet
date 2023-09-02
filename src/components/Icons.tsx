@@ -29,6 +29,7 @@ import {
   MoreHorizontal,
   Trash,
   Settings2,
+  Pencil,
 } from 'lucide-react';
 
 export const Icons = {
@@ -61,6 +62,7 @@ export const Icons = {
   more: MoreHorizontal,
   delete: Trash,
   edit: Settings2,
+  save: Pencil,
   google: (props: LucideProps) => (
     <svg {...props} viewBox="0 0 24 24">
       <path

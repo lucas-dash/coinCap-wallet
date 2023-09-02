@@ -29,6 +29,7 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
 import { useState } from 'react';
+import { Icons } from '../Icons';
 
 interface TransactionDataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[];
@@ -74,7 +75,8 @@ export function TransactionDataTable<TData, TValue>({
               size={'sm'}
               className="ml-auto border-secondary-foreground hover:bg-secondary-foreground rounded-xl"
             >
-              Columns
+              <Icons.edit className="mr-1 h-4" />
+              View
             </Button>
           </DropdownMenuTrigger>
           <DropdownMenuContent align="end">

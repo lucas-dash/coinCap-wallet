@@ -40,11 +40,11 @@ import { useAuthContext } from '@/hooks/useAuth';
 import { addTransaction } from '@/firebase/db';
 import { ScrollArea } from '../ui/scroll-area';
 
-type ActionFormProps = {
+type TransactionFormProps = {
   coins: Coin[];
 };
 
-export default function ActionForm({ coins }: ActionFormProps) {
+export default function TransactionForm({ coins }: TransactionFormProps) {
   const [saving, setSaving] = useState<boolean>(false);
   const [type, setType] = useState<'Deposit' | 'Withdraw'>('Deposit');
   const router = useRouter();
@@ -105,13 +105,13 @@ export default function ActionForm({ coins }: ActionFormProps) {
       variant: 'success',
     });
 
-    router.push('/portfolio');
+    router.back();
     form.reset();
   }
 
   return (
     <>
-      <div className="bg-slate-200 dark:bg-slate-900 w-[200px] rounded-xl mx-auto flex items-center justify-around my-4 p-1.5 shadow-base shadow-shadow/30 dark:shadow-shadow-dark/20">
+      <div className="bg-slate-200 dark:bg-slate-800 w-[200px] rounded-xl mx-auto flex items-center justify-around mb-2 p-1.5 ">
         <Button
           size={'sm'}
           variant={type === 'Deposit' ? 'secondary' : 'ghost'}
@@ -131,11 +131,11 @@ export default function ActionForm({ coins }: ActionFormProps) {
         </Button>
       </div>
 
-      <article className="bg-slate-200 dark:bg-slate-900 w-full rounded-xl max-w-xl mx-auto shadow-base shadow-shadow/30 dark:shadow-shadow-dark/30 mb-3">
+      <article className="bg-foreground dark:bg-slate-900 w-full rounded-xl max-w-xl mx-auto mb-3">
         <Form {...form}>
           <form
             onSubmit={form.handleSubmit(submitTransaction)}
-            className="w-full space-y-3 p-5 flex items-center justify-center flex-col"
+            className="w-full space-y-2 py-4 sm:gap-1.5 flex items-center justify-center flex-col"
           >
             <FormField
               control={form.control}
@@ -147,7 +147,7 @@ export default function ActionForm({ coins }: ActionFormProps) {
                     defaultValue={field.value}
                   >
                     <FormControl>
-                      <SelectTrigger className="rounded-xl border border-input dark:border-input-dark bg-foreground dark:bg-foreground-dark w-max min-w-[200px]">
+                      <SelectTrigger className="border border-input dark:border-input-dark rounded-xl bg-transparent dark:bg-background-dark w-max min-w-[200px]">
                         <SelectValue placeholder="Select Coin" />
                       </SelectTrigger>
                     </FormControl>
@@ -179,14 +179,13 @@ export default function ActionForm({ coins }: ActionFormProps) {
               control={form.control}
               name="amount"
               render={({ field }) => (
-                <FormItem className="flex flex-col items-center">
-                  {/* <FormLabel>Coin Value</FormLabel> */}
+                <FormItem className="flex flex-col items-center py-4">
                   <FormControl>
                     <Input
                       placeholder="0 BTC"
                       type="number"
                       aria-describedby="add your coin value"
-                      className="w-min border-slate-300 dark:border-slate-900 rounded-xl bg-transparent dark:bg-transparent text-lg text-center font-medium my-5 "
+                      className="w-min border-slate-300 dark:border-slate-900 rounded-xl bg-transparent dark:bg-background-dark text-lg text-center font-medium  "
                       {...field}
                     />
                   </FormControl>
@@ -195,7 +194,7 @@ export default function ActionForm({ coins }: ActionFormProps) {
               )}
             />
 
-            <div className="flex items-center justify-center flex-wrap gap-2 w-full">
+            <div className="flex flex-row-reverse flex-wrap-reverse gap-3 items-start justify-center w-full">
               <FormField
                 control={form.control}
                 name="pricePerCoin"
@@ -207,7 +206,7 @@ export default function ActionForm({ coins }: ActionFormProps) {
                     </FormLabel>
                     <FormControl>
                       <Input
-                        className="border-input border-2 dark:border-input-dark bg-foreground dark:bg-foreground-dark w-max min-w-[200px] rounded-xl"
+                        className="border-slate-300 dark:border-slate-900 rounded-xl bg-transparent dark:bg-background-dark w-max min-w-[200px]"
                         placeholder="$29300,20"
                         type="number"
                         aria-describedby="set price for one coin"
@@ -232,10 +231,10 @@ export default function ActionForm({ coins }: ActionFormProps) {
                       <PopoverTrigger asChild>
                         <FormControl>
                           <Button
-                            variant={'ghost'}
+                            variant={'outline'}
                             aria-describedby="select date when you buy a coin"
                             className={cn(
-                              'w-max min-w-[200px] pl-3 text-left font-normal border-input border-2 dark:border-input-dark bg-foreground dark:bg-foreground-dark rounded-xl',
+                              'w-max min-w-[200px] pl-3 text-left font-normal border-slate-300 dark:border-slate-900 rounded-xl bg-transparent hover:bg-transparent hover:text-typography dark:hover:bg-transparent dark:bg-background-dark',
                               !field.value && 'text-muted-foreground'
                             )}
                           >
@@ -266,7 +265,7 @@ export default function ActionForm({ coins }: ActionFormProps) {
               />
             </div>
 
-            <div className="flex items-center justify-center gap-3 flex-wrap">
+            <div className="flex items-center justify-center gap-3 flex-wrap pb-2">
               <FormField
                 control={form.control}
                 name="fee"
@@ -277,7 +276,7 @@ export default function ActionForm({ coins }: ActionFormProps) {
                     </FormLabel>
                     <FormControl>
                       <Input
-                        className="border-input border-2 dark:border-input-dark bg-foreground dark:bg-foreground-dark w-max min-w-[200px] rounded-xl"
+                        className="border-slate-300 dark:border-slate-900 rounded-xl bg-transparent dark:bg-background-dark w-max min-w-[200px]"
                         placeholder="$0,020"
                         type="number"
                         aria-describedby="set price for fee"
@@ -299,8 +298,8 @@ export default function ActionForm({ coins }: ActionFormProps) {
                     </FormLabel>
                     <FormControl>
                       <Input
-                        className="border-input border-2 dark:border-input-dark bg-foreground dark:bg-foreground-dark w-max min-w-[200px] rounded-xl"
-                        placeholder="..."
+                        className="border-slate-300 dark:border-slate-900 rounded-xl bg-transparent dark:bg-background-dark w-max min-w-[200px]"
+                        placeholder="bought from coinbase"
                         type="text"
                         maxLength={20}
                         aria-describedby="you can describe your transaction"
@@ -316,8 +315,10 @@ export default function ActionForm({ coins }: ActionFormProps) {
             <Button
               type="submit"
               size={'sm'}
-              className="w-full max-w-[310px] rounded-xl bg-transparent dark:bg-transparent border-2 border-input dark:border-input-dark hover:border-0 text-typography hover:text-typography-dark dark:text-typography-dark dark:hover:text-typography hover:bg-gradient-to-r from-secondary-foreground dark:from-accent-dark to-secondary dark:to-secondary-dark"
+              className="w-max sm:w-full max-w-[310px] rounded-xl bg-transparent dark:bg-transparent border-2 border-input dark:border-input-dark hover:border-0 text-typography hover:text-typography-dark dark:text-typography-dark dark:hover:text-typography hover:bg-gradient-to-r from-secondary-foreground dark:from-accent-dark to-secondary dark:to-secondary-dark"
               disabled={saving}
+              aria-describedby="add your transaction"
+              aria-disabled={saving}
             >
               {saving ? (
                 <Icons.loading className="mr-2 h-4 w-4 animate-spin" />

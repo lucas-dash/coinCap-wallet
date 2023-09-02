@@ -14,8 +14,17 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from '@/components/ui/dialog';
+
 import { deleteTransaction } from '@/firebase/db';
 import Image from 'next/image';
+import EditForm from './EditForm';
 
 export const columnsTransaction: ColumnDef<Transaction>[] = [
   {
@@ -24,32 +33,40 @@ export const columnsTransaction: ColumnDef<Transaction>[] = [
       const transaction = row.original;
 
       return (
-        <DropdownMenu>
-          <DropdownMenuTrigger asChild>
-            <Button variant="ghost" className="h-8 w-8 p-0">
-              <span className="sr-only">Open menu</span>
-              <Icons.more className="h-4 w-4" />
-            </Button>
-          </DropdownMenuTrigger>
-          <DropdownMenuContent align="start">
-            <DropdownMenuLabel>Actions</DropdownMenuLabel>
-            <DropdownMenuSeparator />
-            <DropdownMenuItem
-              className="cursor-pointer"
-              // onClick={() => openModal(true)}
-            >
-              <Icons.edit className="h-4 mr-1" />
-              Edit
-            </DropdownMenuItem>
-            <DropdownMenuItem
-              className="text-downchange cursor-pointer"
-              onClick={() => deleteTransaction(transaction.id)}
-            >
-              <Icons.delete className="h-4 mr-1" />
-              Delete
-            </DropdownMenuItem>
-          </DropdownMenuContent>
-        </DropdownMenu>
+        <Dialog>
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <Button variant="ghost" className="h-8 w-8 p-0">
+                <span className="sr-only">Open menu</span>
+                <Icons.more className="h-4 w-4" />
+              </Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="start">
+              <DropdownMenuLabel>Actions</DropdownMenuLabel>
+              <DropdownMenuSeparator />
+              <DialogTrigger className="w-full">
+                <DropdownMenuItem className="cursor-pointer">
+                  <Icons.edit className="h-4 mr-1" />
+                  Edit
+                </DropdownMenuItem>
+              </DialogTrigger>
+              <DropdownMenuItem
+                className="text-downchange cursor-pointer"
+                onClick={() => deleteTransaction(transaction.id)}
+              >
+                <Icons.delete className="h-4 mr-1" />
+                Delete
+              </DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
+          <DialogContent className="rounded-xl sm:rounded-xl">
+            <DialogHeader>
+              <DialogTitle>Edit Trasaction</DialogTitle>
+            </DialogHeader>
+
+            <EditForm {...transaction} />
+          </DialogContent>
+        </Dialog>
       );
     },
   },
