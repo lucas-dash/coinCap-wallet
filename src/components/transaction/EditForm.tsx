@@ -247,7 +247,7 @@ export default function EditForm({
                 </FormLabel>
                 <FormControl>
                   <Input
-                    className="border-slate-300 dark:border-slate-900 rounded-xl bg-transparent dark:bg-foreground-dark w-max min-w-[200px] "
+                    className="border-slate-300 dark:border-slate-900 rounded-xl bg-transparent dark:bg-foreground-dark w-min max-w-[200px] "
                     placeholder="$0,020"
                     type="number"
                     aria-describedby="edit price for fee"
@@ -269,7 +269,7 @@ export default function EditForm({
                 </FormLabel>
                 <FormControl>
                   <Input
-                    className="border-slate-300 dark:border-slate-900 rounded-xl bg-transparent  dark:bg-foreground-dark w-max min-w-[200px]"
+                    className="border-slate-300 dark:border-slate-900 rounded-xl bg-transparent  dark:bg-foreground-dark w-max max-w-[200px]"
                     type="text"
                     placeholder="add notes"
                     maxLength={20}

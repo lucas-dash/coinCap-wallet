@@ -1,14 +1,11 @@
-import Assets from '@/components/Assets';
-import Holding from '@/components/Holding';
 import { Icons } from '@/components/Icons';
-import WalletOverview from '@/components/WalletOverview';
 import { Button } from '@/components/ui/button';
-import Transactions from '@/components/Transactions';
 import { Metadata } from 'next';
 import Link from 'next/link';
 import Modal from '@/components/ui/Modal';
 import TransactionForm from '@/components/transaction/TransactionForm';
 import { getCryptoData } from '@/lib/getCoinsData';
+import PortfolioTabs from '@/components/PortfolioTabs';
 
 export const metadata: Metadata = {
   title: 'Portfolio | Coin Wallet',
@@ -33,7 +30,7 @@ export default async function Portfolio({ searchParams }: PortfolioProps) {
         </Modal>
       )}
       <div className="flex flex-col sm:flex-row items-center gap-2">
-        <h5 className="font-medium">Quick Actions:</h5>
+        <h5 className="font-medium">Quick Action:</h5>
         <div className="flex flex-wrap items-center justify-center gap-2">
           <Button
             size={'sm'}
@@ -45,22 +42,10 @@ export default async function Portfolio({ searchParams }: PortfolioProps) {
               Add Transaction
             </Link>
           </Button>
-
-          <Button size={'sm'} variant={'outline'} className="rounded-xl">
-            <Icons.transfer className="mr-2" size={20} />
-            New Transfer
-          </Button>
         </div>
       </div>
 
-      <section className="grid gap-5 2xl:container mt-5">
-        <div className="flex flex-col md:flex-row gap-5">
-          <WalletOverview />
-          <Assets />
-        </div>
-        <Holding />
-        <Transactions />
-      </section>
+      <PortfolioTabs coinsData={coinData?.data.coins} />
     </section>
   );
 }

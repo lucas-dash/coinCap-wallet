@@ -23,3 +23,32 @@ type TransactionCoin = {
   symbol: string;
   image: string;
 };
+
+type HoldingType = {
+  coinName: string;
+  coinDetail: TransactionCoin;
+  valueAtPurchase: number[];
+  hodling: number;
+  buyPrice: number[];
+  avgBuyPrice: number;
+};
+
+type RealTimeType = {
+  valueNow: number;
+  profit: number;
+  profitable: boolean;
+  profitPercentage: string;
+  coinPrice: string;
+  coinChange: string;
+};
+
+type ReaTimelHoldingType = HoldingType & {
+  realTime: RealTimeType;
+};
+
+type TotalOverviewType = {
+  balance: number;
+  totalDeposits: number;
+  allTimeProfit: number;
+  allTimeProfitInPercentage: string;
+};

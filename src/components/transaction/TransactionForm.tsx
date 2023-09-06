@@ -206,7 +206,7 @@ export default function TransactionForm({ coins }: TransactionFormProps) {
                     </FormLabel>
                     <FormControl>
                       <Input
-                        className="border-slate-300 dark:border-slate-900 rounded-xl bg-transparent dark:bg-background-dark w-max min-w-[200px]"
+                        className="border-slate-300 dark:border-slate-900 rounded-xl bg-transparent dark:bg-background-dark w-max max-w-[200px]"
                         placeholder="$29300,20"
                         type="number"
                         aria-describedby="set price for one coin"
@@ -234,7 +234,7 @@ export default function TransactionForm({ coins }: TransactionFormProps) {
                             variant={'outline'}
                             aria-describedby="select date when you buy a coin"
                             className={cn(
-                              'w-max min-w-[200px] pl-3 text-left font-normal border-slate-300 dark:border-slate-900 rounded-xl bg-transparent hover:bg-transparent hover:text-typography dark:hover:bg-transparent dark:bg-background-dark',
+                              'w-[200px] min-w-[200px] pl-3 text-left font-normal border-slate-300 dark:border-slate-900 rounded-xl bg-transparent hover:bg-transparent hover:text-typography dark:hover:bg-transparent dark:bg-background-dark',
                               !field.value && 'text-muted-foreground'
                             )}
                           >
@@ -276,7 +276,7 @@ export default function TransactionForm({ coins }: TransactionFormProps) {
                     </FormLabel>
                     <FormControl>
                       <Input
-                        className="border-slate-300 dark:border-slate-900 rounded-xl bg-transparent dark:bg-background-dark w-max min-w-[200px]"
+                        className="border-slate-300 dark:border-slate-900 rounded-xl bg-transparent dark:bg-background-dark w-max max-w-[200px]"
                         placeholder="$0,020"
                         type="number"
                         aria-describedby="set price for fee"
@@ -298,7 +298,7 @@ export default function TransactionForm({ coins }: TransactionFormProps) {
                     </FormLabel>
                     <FormControl>
                       <Input
-                        className="border-slate-300 dark:border-slate-900 rounded-xl bg-transparent dark:bg-background-dark w-max min-w-[200px]"
+                        className="border-slate-300 dark:border-slate-900 rounded-xl bg-transparent dark:bg-background-dark w-max max-w-[200px]"
                         placeholder="bought from coinbase"
                         type="text"
                         maxLength={20}
