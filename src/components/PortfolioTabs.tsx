@@ -35,7 +35,7 @@ export default function PortfolioTabs({ coinsData }: PorfolioTabsProps) {
   }, [coinsData, transactions])!;
 
   return (
-    <section className="grid gap-5 2xl:container mt-5">
+    <section className="grid gap-5 2xl:container mt-2">
       {loading ? (
         <PortfolioLoad />
       ) : (

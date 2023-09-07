@@ -36,17 +36,14 @@ export default function OverviewHeader({ overview }: OverviewHeaderProps) {
         </div>
         <div>
           <p className="text-xs">All-Time Profit</p>
-          <h5 className="font-medium">
-            {currencyFormat(overview.allTimeProfit)}
-          </h5>
           <h5
-            className={`font-semibold text-sm ${
+            className={`font-semibold ${
               !overview.allTimeProfitInPercentage.includes('-')
                 ? 'text-upchange'
                 : 'text-downchange'
             }`}
           >
-            {`${overview.allTimeProfitInPercentage}%`}(24h)
+            {`${overview.allTimeProfitInPercentage}%`}
           </h5>
         </div>
       </div>

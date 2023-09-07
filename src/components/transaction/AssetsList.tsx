@@ -24,9 +24,7 @@ export default function AssetsList({
       ).toFixed(2),
     }));
 
-    return holdingWithPercentage.sort(
-      (a, b) => b.realTime.valueNow - a.realTime.valueNow
-    );
+    return holdingWithPercentage;
   }, [realTimeData]);
 
   return (

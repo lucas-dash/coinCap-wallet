@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import { Progress } from '../ui/progress';
 import { Icons } from '../Icons';
+import { currencyFormat } from '@/lib/functions';
 
 export default function Asset({
   coinDetail,
@@ -14,13 +15,13 @@ export default function Asset({
     <Image src={coinDetail.image} alt={coinName} width={30} height={30} />
   );
   return (
-    <article className="flex flex-col">
+    <article className="flex flex-col overflow-hidden">
       <div className="flex items-center justify-between">
         <div className="inline-flex items-center gap-2">
           {imageUrl}
           <h6 className="font-semibold">{coinName}</h6>
         </div>
-        <p className="font-medium">
+        <p className="font-medium text-right break-words">
           {hodling} {coinDetail.symbol}
         </p>
       </div>

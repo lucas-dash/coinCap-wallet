@@ -1,7 +1,4 @@
-import { Icons } from '@/components/Icons';
-import { Button } from '@/components/ui/button';
 import { Metadata } from 'next';
-import Link from 'next/link';
 import Modal from '@/components/ui/Modal';
 import TransactionForm from '@/components/transaction/TransactionForm';
 import { getCryptoData } from '@/lib/getCoinsData';
@@ -29,21 +26,6 @@ export default async function Portfolio({ searchParams }: PortfolioProps) {
           <TransactionForm coins={coinData?.data.coins} />
         </Modal>
       )}
-      <div className="flex flex-col sm:flex-row items-center gap-2">
-        <h5 className="font-medium">Quick Action:</h5>
-        <div className="flex flex-wrap items-center justify-center gap-2">
-          <Button
-            size={'sm'}
-            className="rounded-xl shadow-base shadow-secondary-dark/60 dark:shadow-secondary/60"
-            asChild
-          >
-            <Link href={'/portfolio/?newTransaction=true'}>
-              <Icons.add className="mr-2" size={20} />
-              Add Transaction
-            </Link>
-          </Button>
-        </div>
-      </div>
 
       <PortfolioTabs coinsData={coinData?.data.coins} />
     </section>
