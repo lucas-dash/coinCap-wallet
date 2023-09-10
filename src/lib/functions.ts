@@ -3,9 +3,9 @@ export function compactNumber(numbers: number | string) {
     notation: 'compact',
   });
 
-  if (typeof numbers === 'number') return formatter.format(numbers);
-
   if (typeof numbers === 'string') return formatter.format(Number(numbers));
+
+  return formatter.format(numbers);
 }
 
 export function currencyFormat(price: number | string, digits: number = 2) {

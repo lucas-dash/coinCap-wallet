@@ -3,6 +3,8 @@ import Modal from '@/components/ui/Modal';
 import TransactionForm from '@/components/transaction/TransactionForm';
 import { getCryptoData } from '@/lib/getCoinsData';
 import PortfolioTabs from '@/components/PortfolioTabs';
+import { Suspense } from 'react';
+import PortfolioLoad from '@/components/ui/PortfolioLoad';
 
 export const metadata: Metadata = {
   title: 'Portfolio | Coin Wallet',
@@ -27,7 +29,9 @@ export default async function Portfolio({ searchParams }: PortfolioProps) {
         </Modal>
       )}
 
-      <PortfolioTabs coinsData={coinData?.data.coins} />
+      <Suspense fallback={<PortfolioLoad />}>
+        <PortfolioTabs coinsData={coinData?.data.coins} />
+      </Suspense>
     </section>
   );
 }
