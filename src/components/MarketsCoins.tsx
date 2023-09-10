@@ -3,7 +3,7 @@ import { columns } from './cryptos/columns';
 
 export default function MarketsCoins({ coinData }: { coinData: Coin[] }) {
   return (
-    <section className="bg-foreground/70 dark:bg-foreground-dark/60 shadow-[0_2px_10px_-3px] shadow-shadow/60 dark:shadow-shadow-dark/60 rounded-lg w-full">
+    <section className="bg-foreground/60 dark:bg-foreground-dark/60 shadow-base shadow-shadow/30 dark:shadow-shadow-dark/30 rounded-lg w-full">
       <DataTable columns={columns} data={coinData} />
     </section>
   );

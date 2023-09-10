@@ -41,7 +41,10 @@ export default function WalletOverview({ realTimeData }: OverviewProps) {
       </div>
 
       <OverviewHeader overview={overview} />
-      <WalletCharts realTimeData={realTimeData} />
+
+      {realTimeData.length !== 0 && (
+        <WalletCharts realTimeData={realTimeData} />
+      )}
     </section>
   );
 }

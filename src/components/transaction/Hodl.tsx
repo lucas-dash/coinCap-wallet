@@ -19,6 +19,13 @@ type HodlProps = {
 };
 
 export default function Hodl({ realTimeData }: HodlProps) {
+  if (realTimeData.length === 0)
+    return (
+      <p className="text-typography-detail dark:text-typography-detail-dark font-medium text-center py-3">
+        You&apos;re not holding any coins yet.
+      </p>
+    );
+
   return (
     <Table>
       <TableHeader>

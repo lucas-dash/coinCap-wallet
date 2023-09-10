@@ -34,6 +34,7 @@ export default function AssetsList({
           image="/noAssets.svg"
           title="No Assets"
           description="You don't own any assets yet."
+          className="dark:bg-background/80"
           width={250}
           height={220}
         />
