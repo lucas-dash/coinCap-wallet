@@ -12,7 +12,7 @@ type DataItem = {
 
 export default function Piechart({ data }: PiechartProps<DataItem>) {
   return (
-    <div className="bg-typography-dark/60 dark:bg-typography/70 m-2 rounded-xl">
+    <div className=" m-1 rounded-xl">
       <ResponsiveContainer width="100%" height={250}>
         <PieChart width={300} height={200}>
           <Pie

@@ -51,7 +51,7 @@ export default function WalletCharts({ realTimeData }: WalletChartsProps) {
   }, [sumArray]);
 
   return (
-    <section className="bg-foreground/80 dark:bg-foreground-dark rounded-xl mt-7 pb-1 overflow-hidden">
+    <section className="bg-foreground/80 dark:bg-foreground-dark/60 rounded-xl mt-7 pb-1 overflow-hidden">
       <div className="flex items-center justify-between container my-4">
         <h4 className="font-medium text-lg">
           {activeChart === 'Area' ? '24h trend' : 'Allocation'}

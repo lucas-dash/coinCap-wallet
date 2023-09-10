@@ -14,7 +14,7 @@ export default function WalletOverview({ realTimeData }: OverviewProps) {
 
   return (
     <section className="bg-foreground/60 dark:bg-foreground-dark/60 rounded-xl p-2 sm:p-4 shadow-base shadow-shadow/30 dark:shadow-shadow-dark/30">
-      <div className="flex items-center justify-center gap-3 flex-wrap pb-5">
+      <div className="flex items-center justify-center sm:justify-between gap-1.5 min-[390px]:gap-5 flex-wrap pb-5">
         <div className="flex items-center gap-1.5">
           <h4 className="font-semibold text-lg sm:text-xl">Overview</h4>
           <p

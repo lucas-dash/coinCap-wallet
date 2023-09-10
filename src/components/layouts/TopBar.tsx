@@ -12,7 +12,7 @@ export default function TopBar() {
           <NavSwitcher />
           <Link href={'/'} className="flex items-center gap-2">
             <div className="bg-emerald-300 w-8 h-8 rounded-full"></div>
-            <p className="text-lg font-semibold max-[280px]:hidden">
+            <p className="text-lg font-semibold max-[300px]:hidden">
               Coin Wallet
             </p>
           </Link>
