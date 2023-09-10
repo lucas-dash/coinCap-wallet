@@ -47,7 +47,7 @@ export default function Hodl({ realTimeData }: HodlProps) {
                   />
                 )}
                 <Button variant={'link'} asChild>
-                  <Link href={asset.coinDetail.url}>
+                  <Link href={`markets/${asset.coinDetail.url}`}>
                     <p className="font-medium inline-block ">
                       {asset.coinName}
                     </p>

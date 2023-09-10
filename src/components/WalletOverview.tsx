@@ -3,6 +3,7 @@ import { Button } from './ui/button';
 import OverviewHeader from './OverviewHeader';
 import { currencyFormat, totalOverview } from '@/lib/functions';
 import Link from 'next/link';
+import WalletCharts from './WalletCharts';
 
 type OverviewProps = {
   realTimeData: ReaTimelHoldingType[];
@@ -40,30 +41,7 @@ export default function WalletOverview({ realTimeData }: OverviewProps) {
       </div>
 
       <OverviewHeader overview={overview} />
-
-      <section className="w-full bg-slate-300 dark:bg-slate-400 rounded-lg mt-7">
-        <div className="flex items-center justify-between container">
-          <div>$29019</div>
-
-          <div className="bg-primary rounded-md w-max px-1 py-1 flex items-center gap-2">
-            <Button
-              size={'icon'}
-              className="h-6 w-7 bg-select dark:hover:bg-foreground"
-              variant={'ghost'}
-            >
-              <Icons.trendingUp size={18} className="text-typography" />
-            </Button>
-            <Button
-              size={'icon'}
-              className="h-6 w-7 dark:hover:bg-foreground"
-              variant={'ghost'}
-            >
-              <Icons.portfolio size={18} className="text-typography" />
-            </Button>
-          </div>
-        </div>
-        Hello
-      </section>
+      <WalletCharts realTimeData={realTimeData} />
     </section>
   );
 }

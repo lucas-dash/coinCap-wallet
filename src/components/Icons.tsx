@@ -30,6 +30,7 @@ import {
   Trash,
   Settings2,
   Pencil,
+  TrendingDown,
 } from 'lucide-react';
 
 export const Icons = {
@@ -44,6 +45,7 @@ export const Icons = {
   logout: LogOut,
   loading: Loader2,
   trendingUp: TrendingUp,
+  trendingDown: TrendingDown,
   sorting: ArrowUpDown,
   trendUp: ChevronUp,
   trendDown: ChevronDown,

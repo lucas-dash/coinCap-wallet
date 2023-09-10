@@ -38,6 +38,8 @@ type RealTimeType = {
   profit: number;
   profitable: boolean;
   profitPercentage: string;
+  todaySparkline: string[];
+  todaySparklineValues: number[];
   coinPrice: string;
   coinChange: string;
 };

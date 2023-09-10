@@ -15,9 +15,9 @@ export function currencyFormat(price: number | string, digits: number = 2) {
     minimumFractionDigits: digits,
   });
 
-  if (typeof price === 'number') return formatted.format(price);
-
   if (typeof price === 'string') return formatted.format(Number(price));
+
+  return formatted.format(price);
 }
 
 export function transactionFormat(payment: number | string) {
@@ -31,6 +31,19 @@ export function transactionFormat(payment: number | string) {
   if (typeof payment === 'number') return formatted.format(payment);
 
   if (typeof payment === 'string') return formatted.format(Number(payment));
+}
+
+export function generateTimestamps(): string[] {
+  const currentHour = new Date().getHours();
+  const timestamps = [];
+
+  for (let i = 0; i < 24; i++) {
+    const hour = (currentHour + i) % 24;
+    const timestamp = `${hour}:00`;
+    timestamps.push(timestamp);
+  }
+
+  return timestamps;
 }
 
 export function getHoldingAssets(allTransaction: Transaction[]) {
@@ -72,7 +85,7 @@ export function getHoldingAssets(allTransaction: Transaction[]) {
 export function realTimeData(realData: Coin[], holding: HoldingType[]) {
   const realTime: Record<string, RealTimeType> = {};
 
-  realData.find(({ change, name, price }) => {
+  realData.find(({ change, name, price, sparkline }) => {
     holding.forEach(({ coinName, hodling, valueAtPurchase }) => {
       if (coinName === name) {
         if (!realTime[coinName]) {
@@ -85,12 +98,18 @@ export function realTimeData(realData: Coin[], holding: HoldingType[]) {
           const profit = valueNow - sumValues;
           const profitable = sumValues < valueNow;
           const profitPercentage = ((profit / sumValues) * 100).toFixed(2);
+          const todaySparkline = sparkline;
+          const todaySparklineValues = sparkline.map(
+            (price) => Number(price) * hodling
+          );
 
           realTime[coinName] = {
             valueNow,
             profit,
             profitable,
             profitPercentage,
+            todaySparkline,
+            todaySparklineValues,
             coinPrice: price,
             coinChange: change,
           };

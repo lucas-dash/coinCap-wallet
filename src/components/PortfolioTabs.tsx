@@ -40,7 +40,7 @@ export default function PortfolioTabs({ coinsData }: PorfolioTabsProps) {
         <PortfolioLoad />
       ) : (
         <>
-          <div className="flex flex-col md:flex-row gap-5">
+          <div className="flex flex-col lg:flex-row gap-5">
             <WalletOverview realTimeData={realTimeData} />
             <Assets realTimeData={realTimeData} transactions={transactions} />
           </div>

@@ -6,6 +6,12 @@ type OverviewHeaderProps = {
 };
 
 export default function OverviewHeader({ overview }: OverviewHeaderProps) {
+  const trendingIcon = !overview.allTimeProfitInPercentage.includes('-') ? (
+    <Icons.trendingUp className="dark:text-typography" />
+  ) : (
+    <Icons.trendingDown className="dark:text-typography" />
+  );
+
   return (
     <section className="flex items-center justify-center flex-wrap gap-x-9 gap-y-4 sm:gap-y-6">
       <div className="flex items-center gap-5 shadow-base shadow-shadow/20 dark:shadow-shadow-dark/30 bg-slate-100 dark:bg-foreground-dark p-4 rounded-2xl min-w-[200px]">
@@ -32,7 +38,7 @@ export default function OverviewHeader({ overview }: OverviewHeaderProps) {
 
       <div className="flex items-center gap-5 shadow-base shadow-shadow/20 dark:shadow-shadow-dark/30 bg-slate-100 dark:bg-foreground-dark p-4 rounded-2xl min-w-[200px]">
         <div className="bg-primary dark:bg-slate-200 shadow-base shadow-slate-300 dark:shadow-slate-800 rounded-lg w-10 h-10 flex items-center justify-center">
-          <Icons.trendingUp className="dark:text-typography" />
+          {trendingIcon}
         </div>
         <div>
           <p className="text-xs">All-Time Profit</p>
