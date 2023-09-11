@@ -1,7 +1,9 @@
+'use client';
+
 import Image from 'next/image';
 import { Icons } from './Icons';
-import { Button } from './ui/button';
 import { currencyFormat } from '@/lib/functions';
+import WatchlistButton from './ui/WatchlistButton';
 
 export default function CoinHeader({
   name,
@@ -9,7 +11,23 @@ export default function CoinHeader({
   symbol,
   price,
   change,
+  uuid,
+  rank,
+  marketCap,
+  ['24hVolume']: volume24,
 }: CoinId) {
+  const watchlistData: WatchlistData = {
+    uuid,
+    name,
+    price,
+    symbol,
+    change,
+    iconUrl,
+    rank,
+    volume24,
+    marketCap,
+  };
+
   const imageUrl = iconUrl.includes('?') ? (
     <Icons.coins size={25} />
   ) : (
@@ -29,13 +47,11 @@ export default function CoinHeader({
             {symbol}
           </span>
         </div>
-        <Button
-          variant={'ghost'}
-          size={'icon'}
-          className="group rounded-full shadow-base shadow-shadow/60 dark:shadow-shadow-dark/40 h-9 w-9 bg-background-dark dark:bg-background hover:dark:bg-primary/30 hover:bg-primary-dark/30 "
-        >
-          <Icons.watchlist className="group-hover:fill-red-500 text-typography-dark dark:text-typography" />
-        </Button>
+        <WatchlistButton
+          uuid={uuid}
+          watchlistData={watchlistData}
+          iconSize={24}
+        />
       </div>
 
       <div className="flex flex-col items-center md:items-start my-2 gap-1">

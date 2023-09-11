@@ -85,3 +85,45 @@ export async function deleteTransaction(id: string) {
     console.log(e);
   }
 }
+
+export async function addToWatchlist(coin: WatchlistData) {
+  let error = null;
+  try {
+    const user = auth.currentUser;
+    if (user) {
+      const userRef = doc(db, 'users', user.uid);
+      const userDoc = await getDoc(userRef);
+      const userData = userDoc.data() as UserCollection;
+
+      const updatedWatchlist = [...userData?.watchlist, coin];
+
+      await updateDoc(userRef, {
+        watchlist: updatedWatchlist,
+      });
+    }
+  } catch (e) {
+    console.log(e);
+    error = e;
+  }
+}
+
+export async function deleteFromWatchlist(uuid: string) {
+  try {
+    const user = auth.currentUser;
+    if (user) {
+      const userRef = doc(db, 'users', user.uid);
+      const userDoc = await getDoc(userRef);
+      const userData = userDoc.data() as UserCollection;
+
+      const updatedWatchlist = userData?.watchlist.filter(
+        (coin) => coin.uuid !== uuid
+      );
+
+      await updateDoc(userRef, {
+        watchlist: updatedWatchlist,
+      });
+    }
+  } catch (e) {
+    console.log(e);
+  }
+}

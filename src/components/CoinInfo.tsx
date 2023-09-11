@@ -12,8 +12,8 @@ export default function CoinInfo({
   websiteUrl,
 }: CoinId) {
   return (
-    <section className="w-full lg:max-w-[240px]">
-      <div className="rounded-lg bg-background-dark dark:bg-background w-full md:w-[180px] flex flex-col px-2 py-1.5 text-typography-dark dark:text-typography mb-5">
+    <section className="w-full lg:max-w-[240px] mt-2">
+      <div className="rounded-lg bg-background-dark dark:bg-background w-full lg:w-[190px] flex flex-col px-2 py-1.5 text-typography-dark dark:text-typography mb-5">
         <div className="flex items-center justify-between">
           <p className="text-sm text-typography-detail-dark dark:text-typography-detail">
             In My Portfolio
@@ -22,8 +22,11 @@ export default function CoinInfo({
             size={'icon'}
             variant={'ghost'}
             className="rounded-full w-7 h-7"
+            asChild
           >
-            <Icons.add />
+            <Link href={`/portfolio/?newTransaction=true`}>
+              <Icons.add />
+            </Link>
           </Button>
         </div>
         <h6 className="font-medium text-lg">{transactionFormat(180)}</h6>

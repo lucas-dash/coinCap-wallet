@@ -3,7 +3,7 @@ type UserCollection = {
   wallet: {
     transactions: Transaction[];
   };
-  watchlist: Coin[];
+  watchlist: WatchlistData[];
 };
 
 type Transaction = {

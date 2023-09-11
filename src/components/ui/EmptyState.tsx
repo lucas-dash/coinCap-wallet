@@ -27,13 +27,7 @@ const EmptyState = ({
   return (
     <article className="flex items-center justify-center flex-col my-3">
       <div className={cn('rounded-xl py-3 px-2', className)} {...props}>
-        <Image
-          src={image}
-          alt={title}
-          width={width}
-          height={height}
-          priority={false}
-        />
+        <Image src={image} alt={title} width={width} height={height} priority />
       </div>
       <h4 className="text-lg font-semibold">{title}</h4>
       <p className="text-typography-detail dark:text-typography-detail-dark text-center pb-2">

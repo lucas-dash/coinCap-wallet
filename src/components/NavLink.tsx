@@ -7,30 +7,31 @@ import { buttonVariants } from './ui/button';
 type NavLinkProps = {
   href: string;
   name: string;
-  icon?: React.ReactNode;
+  icon?: JSX.Element;
 };
 
 export default function NavLink({ href, name, icon }: NavLinkProps) {
   const pathname = usePathname();
+  const active = pathname === href;
 
   return (
-    <Link href={href} passHref legacyBehavior>
-      <a
-        className={`${
-          pathname === href
-            ? buttonVariants({
-                variant: 'accent',
-                className: 'w-full',
-              })
-            : buttonVariants({
-                variant: 'ghost',
-                className: 'rounded-xl w-full',
-              })
-        }`}
-      >
-        {icon}
-        {name}
-      </a>
+    <Link
+      href={href}
+      passHref
+      className={
+        active
+          ? buttonVariants({
+              variant: 'accent',
+              className: 'w-full',
+            })
+          : buttonVariants({
+              variant: 'ghost',
+              className: 'rounded-xl w-full',
+            })
+      }
+    >
+      {icon}
+      {name}
     </Link>
   );
 }

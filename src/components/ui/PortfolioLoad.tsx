@@ -1,7 +1,7 @@
 import OverviewSkeleton from './Skeletons/OverviewSkeleton';
 import AssetsLoading from './Skeletons/AssetsLoading';
 import HoldingSkeleton from './Skeletons/HoldingSkeleton';
-import TransactionsSkeleton from './Skeletons/TransactionsSkeleton';
+import TableSkeleton from './Skeletons/TableSkeleton';
 
 export default function PortfolioLoad() {
   return (
@@ -11,7 +11,7 @@ export default function PortfolioLoad() {
         <AssetsLoading />
       </div>
       <HoldingSkeleton />
-      <TransactionsSkeleton />
+      <TableSkeleton />
     </section>
   );
 }

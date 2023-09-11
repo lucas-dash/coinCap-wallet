@@ -73,3 +73,15 @@ type CoinId = {
   };
   coinrankingUrl: string;
 };
+
+type WatchlistData = {
+  uuid: string;
+  name: string;
+  price: string;
+  symbol: string;
+  change: string;
+  iconUrl: string;
+  rank: number;
+  volume24: string;
+  marketCap: string;
+};

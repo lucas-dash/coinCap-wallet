@@ -3,6 +3,9 @@
 import useDatabase from '@/hooks/useDatabase';
 import { useToast } from './ui/use-toast';
 import EmptyState from './ui/EmptyState';
+import { DataTable } from './cryptos/DataTable';
+import { columnsWatchlist } from './cryptos/columnsWatchlist';
+import TableSkeleton from './ui/Skeletons/TableSkeleton';
 
 export default function WatchlistTable() {
   const { userData, loading, error } = useDatabase();
@@ -16,12 +19,12 @@ export default function WatchlistTable() {
     });
   }
 
-  const watchlist = userData?.watchlist;
+  const watchlist = userData?.watchlist.sort((a, b) => a.rank - b.rank);
 
   return (
-    <section className="h-full bg-foreground/60 dark:bg-foreground-dark/60 rounded-xl p-2 sm:p-4 shadow-base shadow-shadow/30 dark:shadow-shadow-dark/30">
+    <section className="h-full">
       {loading ? (
-        <p>Loading...</p>
+        <TableSkeleton />
       ) : watchlist?.length === 0 || watchlist === undefined ? (
         <div className="h-full grid place-items-center">
           <EmptyState
@@ -35,7 +38,7 @@ export default function WatchlistTable() {
           />
         </div>
       ) : (
-        <h4>Table</h4>
+        <DataTable data={watchlist} columns={columnsWatchlist} />
       )}
     </section>
   );
