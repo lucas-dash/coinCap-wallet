@@ -1,15 +1,15 @@
 import AreaGraph from './ui/AreaGraph';
-import { Icons } from './Icons';
+import { Icons } from './ui/Icons';
 import { Button } from './ui/button';
 import { generateTimestamps } from '@/lib/functions';
 import Piechart from './ui/Piechart';
 import { useMemo, useState } from 'react';
 
-type WalletChartsProps = {
+type OverviewChartsProps = {
   realTimeData: ReaTimelHoldingType[];
 };
 
-export default function WalletCharts({ realTimeData }: WalletChartsProps) {
+export default function OverviewCharts({ realTimeData }: OverviewChartsProps) {
   const [activeChart, setActiveChart] = useState<'Pie' | 'Area'>('Area');
 
   const pieChartData = useMemo(() => {
@@ -51,7 +51,7 @@ export default function WalletCharts({ realTimeData }: WalletChartsProps) {
   }, [sumArray]);
 
   return (
-    <section className="bg-foreground/80 dark:bg-foreground-dark/60 rounded-xl mt-7 pb-1 overflow-hidden">
+    <section className="bg-foreground/80 dark:bg-slate-900 rounded-xl mt-7 pb-1 overflow-hidden">
       <div className="flex items-center justify-between container my-4">
         <h4 className="font-medium text-lg">
           {activeChart === 'Area' ? '24h trend' : 'Allocation'}

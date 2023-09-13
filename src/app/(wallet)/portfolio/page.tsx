@@ -1,10 +1,10 @@
 import { Metadata } from 'next';
 import Modal from '@/components/ui/Modal';
 import TransactionForm from '@/components/transaction/TransactionForm';
-import { getCryptoData } from '@/lib/getCoinsData';
 import PortfolioTabs from '@/components/PortfolioTabs';
-import { Suspense } from 'react';
 import PortfolioLoad from '@/components/ui/PortfolioLoad';
+import { Suspense } from 'react';
+import { getCryptoData } from '@/lib/getCoinsData';
 
 export const metadata: Metadata = {
   title: 'Portfolio | Coin Wallet',

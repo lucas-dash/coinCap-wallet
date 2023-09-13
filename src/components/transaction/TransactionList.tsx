@@ -2,10 +2,10 @@
 
 import useDatabase from '@/hooks/useDatabase';
 import { useToast } from '../ui/use-toast';
-import { TransactionDataTable } from './TransactionDataTable';
-import { columnsTransaction } from './columnsTransaction';
 import EmptyState from '../ui/EmptyState';
-import TransactionsLoading from '../ui/TransactionsLoading';
+import TableSkeleton from '../ui/Skeletons/TableSkeleton';
+import { columnsTransaction } from './columnsTransaction';
+import { DataTable } from '../tableData/DataTable';
 
 export default function TransactionList() {
   const { userData, loading, error } = useDatabase();
@@ -21,7 +21,7 @@ export default function TransactionList() {
   return (
     <section>
       {loading ? (
-        <TransactionsLoading />
+        <TableSkeleton />
       ) : transactionData?.length === 0 || transactionData === undefined ? (
         <EmptyState
           image="/noTransaction.svg"
@@ -34,10 +34,7 @@ export default function TransactionList() {
           width={160}
         />
       ) : (
-        <TransactionDataTable
-          columns={columnsTransaction}
-          data={transactionData}
-        />
+        <DataTable columns={columnsTransaction} data={transactionData} />
       )}
     </section>
   );

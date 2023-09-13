@@ -1,6 +1,6 @@
 import ModeToggle from '@/components/ui/ModeToggle';
 import Link from 'next/link';
-import { Icons } from '../Icons';
+import { Icons } from '../ui/Icons';
 import { Button } from '../ui/button';
 import NavSwitcher from './NavSwitcher';
 

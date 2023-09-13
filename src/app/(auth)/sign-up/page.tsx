@@ -21,7 +21,7 @@ import { signInWithGoogle, signUp } from '@/firebase/auth';
 import { useToast } from '@/components/ui/use-toast';
 import { useState } from 'react';
 import { FirebaseError } from 'firebase/app';
-import { Icons } from '@/components/Icons';
+import { Icons } from '@/components/ui/Icons';
 import { addUserData } from '@/firebase/db';
 
 const signUpSchema = z

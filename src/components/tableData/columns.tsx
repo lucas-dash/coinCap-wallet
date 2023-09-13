@@ -2,13 +2,13 @@
 
 import { ColumnDef } from '@tanstack/react-table';
 import { Button } from '../ui/button';
-import { Icons } from '../Icons';
+import { Icons } from '../ui/Icons';
 import Link from 'next/link';
 import Image from 'next/image';
 import { currencyFormat } from '@/lib/functions';
 import WatchlistButton from '../ui/WatchlistButton';
 
-export const columnsWatchlist: ColumnDef<WatchlistData>[] = [
+export const columns: ColumnDef<Coin>[] = [
   {
     accessorKey: 'actions',
     cell: ({ row }) => {
@@ -22,7 +22,7 @@ export const columnsWatchlist: ColumnDef<WatchlistData>[] = [
         uuid,
         rank,
         marketCap,
-        volume24,
+        ['24hVolume']: volume24,
       } = coin;
 
       const watchlistData: WatchlistData = {
@@ -132,10 +132,10 @@ export const columnsWatchlist: ColumnDef<WatchlistData>[] = [
     },
   },
   {
-    accessorKey: 'volume24',
+    accessorKey: '24hVolume',
     header: 'Volume(24h)',
     cell: ({ row }) => {
-      const volume = parseFloat(row.getValue('volume24'));
+      const volume = parseFloat(row.getValue('24hVolume'));
       const formatted = new Intl.NumberFormat('en-US', {
         style: 'currency',
         currency: 'USD',

@@ -3,8 +3,8 @@
 import useDatabase from '@/hooks/useDatabase';
 import { useToast } from './ui/use-toast';
 import EmptyState from './ui/EmptyState';
-import { DataTable } from './cryptos/DataTable';
-import { columnsWatchlist } from './cryptos/columnsWatchlist';
+import { DataTable } from './tableData/DataTable';
+import { columnsWatchlist } from './tableData/columnsWatchlist';
 import TableSkeleton from './ui/Skeletons/TableSkeleton';
 
 export default function WatchlistTable() {
@@ -22,7 +22,7 @@ export default function WatchlistTable() {
   const watchlist = userData?.watchlist.sort((a, b) => a.rank - b.rank);
 
   return (
-    <section className="h-full">
+    <>
       {loading ? (
         <TableSkeleton />
       ) : watchlist?.length === 0 || watchlist === undefined ? (
@@ -40,6 +40,6 @@ export default function WatchlistTable() {
       ) : (
         <DataTable data={watchlist} columns={columnsWatchlist} />
       )}
-    </section>
+    </>
   );
 }

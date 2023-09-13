@@ -33,7 +33,7 @@ import {
 } from '@/components/ui/popover';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
-import { Icons } from '../Icons';
+import { Icons } from '../ui/Icons';
 
 import { transactionSchema } from '@/lib/validations/transactionSchema';
 import { useAuthContext } from '@/hooks/useAuth';

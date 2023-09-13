@@ -2,7 +2,7 @@
 
 import Assets from '@/components/Assets';
 import Holding from '@/components/Holding';
-import WalletOverview from '@/components/WalletOverview';
+import Overview from './Overview';
 import Transactions from '@/components/Transactions';
 import useDatabase from '@/hooks/useDatabase';
 import { useToast } from './ui/use-toast';
@@ -41,7 +41,7 @@ export default function PortfolioTabs({ coinsData }: PorfolioTabsProps) {
       ) : (
         <>
           <div className="grid gap-5 grid-cols-1 lg:grid-cols-[minmax(200px,1fr)_240px]">
-            <WalletOverview realTimeData={realTimeData} />
+            <Overview realTimeData={realTimeData} />
             <Assets realTimeData={realTimeData} transactions={transactions} />
           </div>
           <Holding realTimeData={realTimeData} />

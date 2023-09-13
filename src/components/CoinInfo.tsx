@@ -1,5 +1,5 @@
 import { Button } from './ui/button';
-import { Icons } from './Icons';
+import { Icons } from './ui/Icons';
 import { transactionFormat, compactNumber } from '@/lib/functions';
 import Link from 'next/link';
 

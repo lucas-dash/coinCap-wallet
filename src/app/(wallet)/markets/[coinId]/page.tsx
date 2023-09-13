@@ -1,7 +1,7 @@
 import CoinChart from '@/components/CoinChart';
 import CoinHeader from '@/components/CoinHeader';
 import CoinInfo from '@/components/CoinInfo';
-import { Icons } from '@/components/Icons';
+import { Icons } from '@/components/ui/Icons';
 import { Button } from '@/components/ui/button';
 import { getCoin } from '@/lib/getCoin';
 import Link from 'next/link';

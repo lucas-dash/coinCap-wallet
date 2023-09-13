@@ -1,7 +1,7 @@
 import React from 'react';
 import TopBar from '@/components/layouts/TopBar';
 import Sidebar from '@/components/layouts/Sidebar';
-import { Icons } from '@/components/Icons';
+import { Icons } from '@/components/ui/Icons';
 import AuthContextProvider from '@/context/AuthContext';
 import Link from 'next/link';
 

@@ -4,7 +4,7 @@ import { ColumnDef } from '@tanstack/react-table';
 import Link from 'next/link';
 import { transactionFormat } from '@/lib/functions';
 
-import { Icons } from '../Icons';
+import { Icons } from '../ui/Icons';
 import { Button } from '@/components/ui/button';
 import {
   DropdownMenu,

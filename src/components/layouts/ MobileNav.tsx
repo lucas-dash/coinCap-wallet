@@ -2,8 +2,8 @@
 
 import { Dispatch, SetStateAction } from 'react';
 import { Button } from '../ui/button';
-import { Icons } from '../Icons';
-import NavLink from '../NavLink';
+import { Icons } from '../ui/Icons';
+import NavLink from '../ui/NavLink';
 import LogOut from '../LogOut';
 
 type MobileNavProps = {

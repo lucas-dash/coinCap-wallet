@@ -1,5 +1,5 @@
 import { currencyFormat } from '@/lib/functions';
-import { Icons } from './Icons';
+import { Icons } from './ui/Icons';
 
 type OverviewHeaderProps = {
   overview: TotalOverviewType;
@@ -14,7 +14,7 @@ export default function OverviewHeader({ overview }: OverviewHeaderProps) {
 
   return (
     <section className="flex items-center justify-center flex-wrap gap-x-9 gap-y-4 sm:gap-y-6">
-      <div className="flex items-center gap-5 shadow-base shadow-shadow/20 dark:shadow-shadow-dark/30 bg-slate-100 dark:bg-foreground-dark p-4 rounded-2xl min-w-[200px]">
+      <div className="flex items-center gap-5 shadow-base shadow-shadow/20 dark:shadow-shadow-dark/30 bg-slate-100 dark:bg-slate-900 p-4 rounded-2xl min-w-[200px]">
         <div className="bg-primary dark:bg-slate-200 shadow-base shadow-slate-300 dark:shadow-slate-800 rounded-lg w-10 h-10 flex items-center justify-center">
           <Icons.money className="dark:text-typography" />
         </div>
@@ -24,7 +24,7 @@ export default function OverviewHeader({ overview }: OverviewHeaderProps) {
         </div>
       </div>
 
-      <div className="flex items-center gap-5 shadow-base shadow-shadow/20 dark:shadow-shadow-dark/30 bg-slate-100 dark:bg-foreground-dark p-4 rounded-2xl min-w-[200px]">
+      <div className="flex items-center gap-5 shadow-base shadow-shadow/20 dark:shadow-shadow-dark/30 bg-slate-100 dark:bg-slate-900 p-4 rounded-2xl min-w-[200px]">
         <div className="bg-primary dark:bg-slate-200 shadow-base shadow-slate-300 dark:shadow-slate-800 rounded-lg w-10 h-10 flex items-center justify-center">
           <Icons.card className="dark:text-typography" />
         </div>
@@ -36,7 +36,7 @@ export default function OverviewHeader({ overview }: OverviewHeaderProps) {
         </div>
       </div>
 
-      <div className="flex items-center gap-5 shadow-base shadow-shadow/20 dark:shadow-shadow-dark/30 bg-slate-100 dark:bg-foreground-dark p-4 rounded-2xl min-w-[200px]">
+      <div className="flex items-center gap-5 shadow-base shadow-shadow/20 dark:shadow-shadow-dark/30 bg-slate-100 dark:bg-slate-900 p-4 rounded-2xl min-w-[200px]">
         <div className="bg-primary dark:bg-slate-200 shadow-base shadow-slate-300 dark:shadow-slate-800 rounded-lg w-10 h-10 flex items-center justify-center">
           {trendingIcon}
         </div>

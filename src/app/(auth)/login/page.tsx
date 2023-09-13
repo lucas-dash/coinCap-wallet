@@ -21,7 +21,7 @@ import { logIn, signInWithGoogle } from '@/firebase/auth';
 import { FirebaseError } from 'firebase/app';
 import { useToast } from '@/components/ui/use-toast';
 import { useState } from 'react';
-import { Icons } from '@/components/Icons';
+import { Icons } from '@/components/ui/Icons';
 
 const logInSchema = z.object({
   email: z.string().email(),

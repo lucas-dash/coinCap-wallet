@@ -2,7 +2,7 @@
 
 import { addToWatchlist, deleteFromWatchlist } from '@/firebase/db';
 import { Button } from './button';
-import { Icons } from '../Icons';
+import { Icons } from './Icons';
 import useDatabase from '@/hooks/useDatabase';
 import { useToast } from './use-toast';
 

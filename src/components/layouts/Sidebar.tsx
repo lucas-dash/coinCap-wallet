@@ -1,5 +1,5 @@
-import { Icons } from '../Icons';
-import NavLink from '../NavLink';
+import { Icons } from '../ui/Icons';
+import NavLink from '../ui/NavLink';
 import LogOut from '../LogOut';
 
 const sidebarLinks = [

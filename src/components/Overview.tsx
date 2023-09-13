@@ -1,15 +1,15 @@
-import { Icons } from './Icons';
+import { Icons } from './ui/Icons';
 import { Button } from './ui/button';
 import OverviewHeader from './OverviewHeader';
+import OverviewCharts from './OverviewCharts';
 import { currencyFormat, totalOverview } from '@/lib/functions';
 import Link from 'next/link';
-import WalletCharts from './WalletCharts';
 
 type OverviewProps = {
   realTimeData: ReaTimelHoldingType[];
 };
 
-export default function WalletOverview({ realTimeData }: OverviewProps) {
+export default function Overview({ realTimeData }: OverviewProps) {
   const overview = totalOverview(realTimeData);
 
   return (
@@ -43,7 +43,7 @@ export default function WalletOverview({ realTimeData }: OverviewProps) {
       <OverviewHeader overview={overview} />
 
       {realTimeData.length !== 0 && (
-        <WalletCharts realTimeData={realTimeData} />
+        <OverviewCharts realTimeData={realTimeData} />
       )}
     </section>
   );

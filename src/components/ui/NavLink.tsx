@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { buttonVariants } from './ui/button';
+import { buttonVariants } from './button';
 
 type NavLinkProps = {
   href: string;

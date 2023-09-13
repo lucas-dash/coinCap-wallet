@@ -1,7 +1,7 @@
 'use client';
 
 import Image from 'next/image';
-import { Icons } from './Icons';
+import { Icons } from './ui/Icons';
 import { currencyFormat } from '@/lib/functions';
 import WatchlistButton from './ui/WatchlistButton';
 

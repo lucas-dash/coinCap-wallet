@@ -1,7 +1,7 @@
 'use client';
 
 import { useRouter } from 'next/navigation';
-import { Icons } from './Icons';
+import { Icons } from './ui/Icons';
 import { Button } from './ui/button';
 import { logOut } from '@/firebase/auth';
 import { useToast } from './ui/use-toast';

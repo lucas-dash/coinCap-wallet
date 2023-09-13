@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import { Progress } from '../ui/progress';
-import { Icons } from '../Icons';
+import { Icons } from '../ui/Icons';
 import { currencyFormat } from '@/lib/functions';
 
 export default function Asset({
