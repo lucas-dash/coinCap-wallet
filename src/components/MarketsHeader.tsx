@@ -6,49 +6,39 @@ export default function MarketsHeader({
   totalExchanges,
 }: Stats) {
   return (
-    <>
-      <h3 className="font-medium text-lg">
-        Today&apos;s Cryptocurrency Prices
-      </h3>
-      <p className="text-sm sm:text-base">
-        The global crypto market cap is {compactNumber(totalMarketCap)}
-      </p>
+    <article className="flex flex-col gap-5 items-center sm:items-start lg:items-center lg:flex-row justify-center lg:justify-between mb-4 bg-primary/50  dark:bg-primary-dark/50 rounded-xl p-2">
+      <div>
+        <h3 className="font-medium text-lg">
+          Today&apos;s Cryptocurrency Prices
+        </h3>
+        <p className="text-sm sm:text-base">
+          The global crypto market cap is:
+          <span className="font-semibold pl-1">
+            {compactNumber(totalMarketCap)}
+          </span>
+        </p>
+      </div>
 
-      <section className="my-5 flex overflow-x-scroll gap-4 snap-x snap-mandatory snap-always lg:snap-none lg:overflow-hidden max-w-6xl mx-auto py-2 px-1">
-        <article className="min-h-[200px] min-w-[200px] rounded-lg bg-foreground/60  dark:bg-foreground-dark/70 flex-grow-0 flex-shrink-0 basis-full snap-start lg:flex-1 p-1.5">
-          <div>
-            <h4 className="text-center text-base md:text-lg font-semibold mb-2">
-              Crypto market stats over the last 24 hours
-            </h4>
-            <p className="mb-1">
-              Total 24h Volume:{' '}
-              <span className="font-semibold">
-                {compactNumber(total24hVolume)}
-              </span>
-            </p>
-            <p className="">
-              Total Exchanges:{' '}
-              <span className="font-semibold">
-                {compactNumber(totalExchanges)}
-              </span>
-            </p>
-          </div>
-        </article>
+      <div>
+        <h4 className="md:text-lg font-medium text-center">
+          Crypto market stats over the last 24 hours
+        </h4>
 
-        <article className="min-h-[200px] min-w-[200px] rounded-lg bg-foreground/60 dark:bg-foreground-dark/70 flex-grow-0 flex-shrink-0 basis-full snap-start lg:flex-1 p-1.5 ">
-          <div>
-            <h4>Crypto market volume over the last 24 hours</h4>
-            <p className="font-medium">{compactNumber(2090990)}</p>
-          </div>
-        </article>
-
-        <article className="min-h-[200px] min-w-[200px] rounded-lg bg-foreground/60 dark:bg-foreground-dark/70 flex-grow-0 flex-shrink-0 basis-full snap-start lg:flex-1 p-1.5 ">
-          <div>
-            <h4>Crypto market volume over the last 24 hours</h4>
-            <p className="font-semibold">{compactNumber(2090990)}</p>
-          </div>
-        </article>
-      </section>
-    </>
+        <div className="flex gap-2">
+          <p className="text-sm sm:text-base text-center">
+            Total 24h Volume:
+            <span className="font-semibold pl-1">
+              {compactNumber(total24hVolume)}
+            </span>
+          </p>
+          <p className="text-sm sm:text-base text-center">
+            Total Exchanges:
+            <span className="font-semibold pl-1">
+              {compactNumber(totalExchanges)}
+            </span>
+          </p>
+        </div>
+      </div>
+    </article>
   );
 }
