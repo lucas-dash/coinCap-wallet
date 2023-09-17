@@ -6,6 +6,7 @@ import { User } from 'firebase/auth';
 import { deleteUserAccount } from '@/firebase/auth';
 import { useRouter } from 'next/navigation';
 import { useToast } from './ui/use-toast';
+import { Icons } from './ui/Icons';
 
 export default function UserInfo() {
   const user = useAuthContext();
@@ -32,7 +33,9 @@ export default function UserInfo() {
   return (
     <section className="flex flex-col gap-5">
       <div className="w-full flex justify-center">
-        <div className="h-32 w-32 bg-rose-500 rounded-full"></div>
+        <div className="h-32 w-32 border border-slate-900 dark:border-slate-200 rounded-full flex items-center justify-center">
+          <Icons.profile className="h-12 w-12" />
+        </div>
       </div>
 
       <article className="bg-foreground dark:bg-foreground-dark rounded-xl px-2 py-3 shadow-[0_2px_10px_-3px] shadow-shadow/60 dark:shadow-shadow/60 flex flex-col gap-3 2xl:max-w-6xl 2xl:mx-auto 2xl:w-[660px]">
@@ -44,13 +47,6 @@ export default function UserInfo() {
               <p className="font-medium">Launch Screen</p>
               <p className="text-typography-detail dark:text-typography-detail-dark">
                 Markets
-              </p>
-            </li>
-
-            <li className="flex justify-between p-2">
-              <p className="font-medium">Dark Mode</p>
-              <p className="text-typography-detail dark:text-typography-detail-dark">
-                System
               </p>
             </li>
           </ul>

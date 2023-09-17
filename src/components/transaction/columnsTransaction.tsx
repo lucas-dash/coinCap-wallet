@@ -2,7 +2,7 @@
 
 import { ColumnDef } from '@tanstack/react-table';
 import Link from 'next/link';
-import { transactionFormat } from '@/lib/functions';
+import { currencyFormat } from '@/lib/functions';
 
 import { Icons } from '../ui/Icons';
 import { Button } from '@/components/ui/button';
@@ -108,7 +108,7 @@ export const columnsTransaction: ColumnDef<Transaction>[] = [
     accessorKey: 'pricePerCoin',
     header: 'Price Per Coin',
     cell: ({ row }) => {
-      return transactionFormat(row.getValue('pricePerCoin'));
+      return currencyFormat(row.getValue('pricePerCoin'));
     },
   },
   {
@@ -142,7 +142,7 @@ export const columnsTransaction: ColumnDef<Transaction>[] = [
     accessorKey: 'fee',
     header: 'Fee',
     cell: ({ row }) => {
-      return transactionFormat(row.original.fee);
+      return currencyFormat(row.original.fee);
     },
   },
   {

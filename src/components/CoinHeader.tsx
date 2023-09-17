@@ -38,7 +38,7 @@ export default function CoinHeader({
   const changeIcon = changeFormat ? <Icons.trendDown /> : <Icons.trendUp />;
 
   return (
-    <section className="lg:max-w-[240px]">
+    <section>
       <div className="flex items-center gap-3 justify-center flex-wrap md:justify-start">
         {imageUrl}
         <div className="flex items-center gap-2 ">

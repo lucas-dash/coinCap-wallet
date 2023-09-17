@@ -6,7 +6,7 @@ export default function MarketsHeader({
   totalExchanges,
 }: Stats) {
   return (
-    <section className="">
+    <>
       <h3 className="font-medium text-lg">
         Today&apos;s Cryptocurrency Prices
       </h3>
@@ -15,7 +15,7 @@ export default function MarketsHeader({
       </p>
 
       <section className="my-5 flex overflow-x-scroll gap-4 snap-x snap-mandatory snap-always lg:snap-none lg:overflow-hidden max-w-6xl mx-auto py-2 px-1">
-        <article className="min-h-[200px] min-w-[200px] rounded-xl bg-foreground/60  dark:bg-foreground-dark/70 flex-grow-0 flex-shrink-0 basis-full snap-start lg:flex-1 shadow-[-2px_3px_10px_-2px] shadow-secondary-foreground dark:shadow-secondary-dark p-1.5">
+        <article className="min-h-[200px] min-w-[200px] rounded-lg bg-foreground/60  dark:bg-foreground-dark/70 flex-grow-0 flex-shrink-0 basis-full snap-start lg:flex-1 p-1.5">
           <div>
             <h4 className="text-center text-base md:text-lg font-semibold mb-2">
               Crypto market stats over the last 24 hours
@@ -35,20 +35,20 @@ export default function MarketsHeader({
           </div>
         </article>
 
-        <article className="min-h-[200px] min-w-[200px] rounded-xl bg-foreground/60 dark:bg-foreground-dark/70 flex-grow-0 flex-shrink-0 basis-full snap-start lg:flex-1 shadow-[0_2px_12px_-2px] shadow-secondary-foreground dark:shadow-secondary-dark p-1.5 ">
+        <article className="min-h-[200px] min-w-[200px] rounded-lg bg-foreground/60 dark:bg-foreground-dark/70 flex-grow-0 flex-shrink-0 basis-full snap-start lg:flex-1 p-1.5 ">
           <div>
             <h4>Crypto market volume over the last 24 hours</h4>
             <p className="font-medium">{compactNumber(2090990)}</p>
           </div>
         </article>
 
-        <article className="min-h-[200px] min-w-[200px] rounded-xl bg-foreground/60 dark:bg-foreground-dark/70 flex-grow-0 flex-shrink-0 basis-full snap-start lg:flex-1 shadow-[0_2px_12px_-2px] shadow-secondary-foreground dark:shadow-secondary-dark p-1.5 ">
+        <article className="min-h-[200px] min-w-[200px] rounded-lg bg-foreground/60 dark:bg-foreground-dark/70 flex-grow-0 flex-shrink-0 basis-full snap-start lg:flex-1 p-1.5 ">
           <div>
             <h4>Crypto market volume over the last 24 hours</h4>
             <p className="font-semibold">{compactNumber(2090990)}</p>
           </div>
         </article>
       </section>
-    </section>
+    </>
   );
 }

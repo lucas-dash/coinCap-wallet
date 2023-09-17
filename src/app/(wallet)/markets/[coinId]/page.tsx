@@ -38,14 +38,14 @@ export default async function Coin({ params: { coinId } }: CoinTypeProps) {
   const coin = await coinResponse;
 
   return (
-    <section className="bg-foreground/60 dark:bg-foreground-dark/60 h-full rounded-2xl p-3 md:p-5 shadow-base shadow-shadow/30 dark:shadow-shadow-dark/30">
+    <section className="bg-foreground/60 dark:bg-foreground-dark/60 h-full rounded-2xl p-3 md:p-5 shadow-base shadow-shadow/30 dark:shadow-shadow-dark/30 2xl:container">
       <Link href={'/markets'}>
         <Button variant={'default'} size={'sm'} className="rounded-xl">
           <Icons.back className="mr-1" />
           Back to markets
         </Button>
       </Link>
-      <section className="grid lg:grid-cols-[240px_minmax(200px,1fr)] gap-5 lg:gap-x-3 mt-3">
+      <section className="grid lg:grid-cols-[250px_minmax(200px,1fr)] gap-5 lg:gap-x-3 mt-3">
         <CoinHeader {...coin?.data?.coin} />
         <CoinChart {...coin?.data?.coin} />
         <CoinInfo {...coin?.data?.coin} />

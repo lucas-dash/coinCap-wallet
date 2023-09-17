@@ -13,7 +13,7 @@ export default async function Markets() {
   const coinsData = await coinsRes;
 
   return (
-    <section className="h-full">
+    <section className="h-full 2xl:container">
       <MarketsHeader {...coinsData?.data.stats} />
       <MarketsCoins coinData={coinsData?.data?.coins} />
     </section>

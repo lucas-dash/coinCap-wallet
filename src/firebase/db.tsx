@@ -13,6 +13,24 @@ export async function addUserData(id: string, data: UserCollection) {
   return { error };
 }
 
+export async function checkForExistsData(userId: string) {
+  let exists: boolean | null = null;
+  try {
+    const userRef = doc(db, 'users', userId);
+    const userDoc = await getDoc(userRef);
+
+    if (userDoc.exists()) {
+      exists = true;
+    } else {
+      exists = false;
+    }
+  } catch (e) {
+    console.log(e);
+  }
+
+  return { exists };
+}
+
 export async function addTransaction(transaction: Transaction, user: User) {
   let error = null;
   try {

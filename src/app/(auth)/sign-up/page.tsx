@@ -22,7 +22,7 @@ import { useToast } from '@/components/ui/use-toast';
 import { useState } from 'react';
 import { FirebaseError } from 'firebase/app';
 import { Icons } from '@/components/ui/Icons';
-import { addUserData } from '@/firebase/db';
+import { addUserData, checkForExistsData } from '@/firebase/db';
 
 const signUpSchema = z
   .object({
@@ -88,6 +88,16 @@ export default function SignUp() {
     const { result, error } = await signInWithGoogle();
 
     if (result) {
+      const { exists } = await checkForExistsData(result.user.uid);
+
+      if (!exists) {
+        await addUserData(result.user.uid, {
+          avatar: null,
+          watchlist: [],
+          wallet: { transactions: [] },
+        });
+      }
+
       router.push('/dashboard');
       toast({
         title: `Succesfully login as ${

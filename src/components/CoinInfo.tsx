@@ -1,7 +1,6 @@
-import { Button } from './ui/button';
-import { Icons } from './ui/Icons';
-import { transactionFormat, compactNumber } from '@/lib/functions';
+import { compactNumber } from '@/lib/functions';
 import Link from 'next/link';
+import InPortfolio from './ui/InPortfolio';
 
 export default function CoinInfo({
   marketCap,
@@ -10,28 +9,12 @@ export default function CoinInfo({
   rank,
   description,
   websiteUrl,
+  name,
+  price,
 }: CoinId) {
   return (
-    <section className="w-full lg:max-w-[240px] mt-2">
-      <div className="rounded-lg bg-background-dark dark:bg-background w-full lg:w-[190px] flex flex-col px-2 py-1.5 text-typography-dark dark:text-typography mb-5">
-        <div className="flex items-center justify-between">
-          <p className="text-sm text-typography-detail-dark dark:text-typography-detail">
-            In My Portfolio
-          </p>
-          <Button
-            size={'icon'}
-            variant={'ghost'}
-            className="rounded-full w-7 h-7"
-            asChild
-          >
-            <Link href={`/portfolio/?newTransaction=true`}>
-              <Icons.add />
-            </Link>
-          </Button>
-        </div>
-        <h6 className="font-medium text-lg">{transactionFormat(180)}</h6>
-      </div>
-
+    <section className="w-full mt-2">
+      <InPortfolio name={name} price={price} />
       <article className="flex flex-col gap-4">
         <div>
           <div className="flex items-center justify-between">

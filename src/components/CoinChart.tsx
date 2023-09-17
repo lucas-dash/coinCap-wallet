@@ -13,7 +13,7 @@ export default function CoinChart({ sparkline }: CoinId) {
   }, [sparkline]);
 
   return (
-    <section className="bg-primary/70 dark:bg-primary-dark/70 rounded-xl shadow-base shadow-shadow/30 dark:shadow-shadow-dark/30 w-full h-max lg:row-span-2 p-1 overflow-hidden">
+    <section className="bg-foreground/80 dark:bg-slate-900 rounded-xl w-full h-max lg:row-span-2 p-1 overflow-hidden">
       <AreaGraph data={coinChartData} />
     </section>
   );
