@@ -118,16 +118,15 @@ export function realTimeData(realData: Coin[], holding: HoldingType[]) {
     });
   });
 
-  const holdingWithRealTime = holding
-    .map((holdingItem) => {
-      const realDataItem = realTime[holdingItem.coinName];
+  const holdingWithRealTime = holding.map((holdingItem) => {
+    const realDataItem = realTime[holdingItem.coinName];
 
-      return {
-        ...holdingItem,
-        realTime: realDataItem,
-      };
-    })
-    .sort((a, b) => b.realTime.valueNow - a.realTime.valueNow);
+    return {
+      ...holdingItem,
+      realTime: realDataItem,
+    };
+  });
+  // .sort((a, b) => b.realTime.valueNow - a.realTime.valueNow);
 
   return holdingWithRealTime as ReaTimelHoldingType[];
 }

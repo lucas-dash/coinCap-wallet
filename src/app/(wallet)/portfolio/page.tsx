@@ -19,18 +19,18 @@ export default async function Portfolio({ searchParams }: PortfolioProps) {
   const showModal = searchParams?.newTransaction;
 
   const coins: Promise<CryptoData> = await getCryptoData();
-  const coinData = await coins;
+  const coinsData = await coins;
 
   return (
     <section className="h-full">
       {showModal && (
         <Modal title="New Transaction" className="rounded-xl sm:rounded-xl">
-          <TransactionForm coins={coinData?.data.coins} />
+          <TransactionForm coins={coinsData?.data.coins} />
         </Modal>
       )}
 
       <Suspense fallback={<PortfolioLoad />}>
-        <PortfolioTabs coinsData={coinData?.data.coins} />
+        <PortfolioTabs coinsData={coinsData?.data.coins} />
       </Suspense>
     </section>
   );

@@ -1,7 +1,5 @@
-import Image from 'next/image';
 import { Progress } from '../ui/progress';
-import { Icons } from '../ui/Icons';
-import { currencyFormat } from '@/lib/functions';
+import CoinImage from '../ui/CoinImage';
 
 export default function Asset({
   coinDetail,
@@ -9,16 +7,16 @@ export default function Asset({
   hodling,
   percentage,
 }: ReaTimelHoldingType & { percentage: string }) {
-  const imageUrl = coinDetail.image.includes('?') ? (
-    <Icons.coins size={30} />
-  ) : (
-    <Image src={coinDetail.image} alt={coinName} width={30} height={30} />
-  );
   return (
     <article className="flex flex-col overflow-hidden">
       <div className="flex items-center justify-between">
         <div className="inline-flex items-center gap-2">
-          {imageUrl}
+          <CoinImage
+            src={coinDetail.image}
+            alt={coinName}
+            width={30}
+            height={30}
+          />
           <h6 className="font-semibold">{coinName}</h6>
         </div>
         <p className="font-medium text-right break-words">
