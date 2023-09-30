@@ -18,7 +18,7 @@ export default function Widget({ realTimeData }: WidgetProps) {
           height={220}
         />
       ) : (
-        <section className="w-full flex flex-col items-center justify-center min-[520px]:flex-row lg:flex-col lg:justify-start overflow-hidden">
+        <section className="w-full flex flex-col items-center gap-4 justify-center min-[520px]:flex-row lg:flex-col lg:justify-start overflow-hidden">
           {realTimeData.slice(0, 2).map((hodl, index) => {
             return (
               <article

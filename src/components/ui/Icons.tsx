@@ -31,6 +31,7 @@ import {
   Settings2,
   Pencil,
   TrendingDown,
+  ShieldCheck,
 } from 'lucide-react';
 
 export const Icons = {
@@ -65,6 +66,7 @@ export const Icons = {
   delete: Trash,
   edit: Settings2,
   save: Pencil,
+  security: ShieldCheck,
   google: (props: LucideProps) => (
     <svg {...props} viewBox="0 0 24 24">
       <path
