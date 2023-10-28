@@ -1,5 +1,6 @@
 import ModeToggle from '@/components/ui/ModeToggle';
 import Link from 'next/link';
+import Image from 'next/image';
 import { Icons } from '../ui/Icons';
 import { Button } from '../ui/button';
 import NavSwitcher from './NavSwitcher';
@@ -11,7 +12,9 @@ export default function TopBar() {
         <div className="flex items-center gap-1">
           <NavSwitcher />
           <Link href={'/'} className="flex items-center gap-2">
-            <div className="bg-emerald-300 w-8 h-8 rounded-full"></div>
+            <div className="h-8 w-8 bg-slate-50 rounded-full flex items-center justify-center">
+              <Image src={'/wallet.svg'} alt="icon" width={24} height={24} />
+            </div>
             <p className="text-lg font-semibold max-[300px]:hidden">
               Coin Wallet
             </p>

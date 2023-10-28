@@ -1,13 +1,16 @@
 import Link from 'next/link';
 import ModeToggle from '../ui/ModeToggle';
 import { Button } from '../ui/button';
+import Image from 'next/image';
 
 export default function Navbar() {
   return (
     <header className="fixed top-2 left-1 right-1 sm:left-4 sm:right-4 rounded-full bg-primary/80 dark:bg-primary-dark/80 h-12 flex items-center backdrop-blur-sm z-50">
       <nav className="flex items-center justify-between w-full px-2 sm:px-2 md:px-4 ">
         <Link href={'/'} className="flex items-center gap-2">
-          <div className="h-8 w-8 bg-emerald-300 rounded-full"></div>
+          <div className="h-8 w-8 bg-slate-50 rounded-full flex items-center justify-center">
+            <Image src={'/wallet.svg'} alt="icon" width={24} height={24} />
+          </div>
           <p className="text-lg font-semibold hidden min-[366px]:inline-block">
             Coin Wallet
           </p>

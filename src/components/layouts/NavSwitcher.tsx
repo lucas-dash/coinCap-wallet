@@ -26,7 +26,6 @@ export default function NavSwitcher() {
       >
         <Icons.panel />
       </Button>
-
       {open && <MobileNav close={setOpen} />}
     </>
   );

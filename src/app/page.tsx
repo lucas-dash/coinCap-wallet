@@ -1,17 +1,24 @@
+'use client';
+
 import Navbar from '@/components/layouts/Navbar';
 import { Icons } from '@/components/ui/Icons';
 import { Button } from '@/components/ui/button';
 import Image from 'next/image';
 import Link from 'next/link';
+import { motion } from 'framer-motion';
 
 export default function Home() {
   return (
     <>
       <Navbar />
       <main className="pt-14 min-h-screen ">
-        <section className="flex flex-col gap-5 justify-center items-center h-[calc(100vh-56px)]">
+        <section className="flex flex-col gap-5 justify-center items-center h-[calc(88vh-56px)]">
           <h1 className="text-4xl font-semibold text-center py-5 px-3">
-            Create your cryptocurrency portfolio
+            Create your
+            <span className="inline-block bg-gradient-to-tr dark:bg-gradient-to-r from-secondary dark:from-secondary-foreground-dark to-secondary-foreground dark:to-green-500 text-transparent bg-clip-text px-2">
+              cryptocurrency
+            </span>
+            portfolio
           </h1>
           <Button asChild variant={'accent'} className="rounded-xl">
             <Link href={'/dashboard'}>Get Started for free</Link>
@@ -47,27 +54,52 @@ export default function Home() {
           </article>
         </section>
 
-        <section className="w-11/12 mx-auto flex items-center justify-center py-20 relative">
-          <Image
-            src={'/watchlistScreen.png'}
-            alt="watchlist showcase"
-            width={250}
-            height={250}
-            className="rounded-xl absolute right-0 bottom-0 translate-x-3 md:translate-y-32 w-[120px] h-[120px] md:w-auto md:h-auto aspect-square z-30"
-          />
+        <section className="w-11/12 mx-auto flex items-center justify-center py-20 my-40 relative container">
+          <motion.div
+            className="absolute right-0 top-0 z-30 rounded-xl overflow-hidden shadow-base shadow-slate-400 dark:shadow-slate-700 w-[100px] md:w-[200px]"
+            initial={{ y: 80, opacity: 0 }}
+            animate={{ y: 0, opacity: 100, transition: { duration: 0.4 } }}
+          >
+            <Image
+              src={'/watchlistShow.png'}
+              alt="watchlist showcase"
+              width={250}
+              height={250}
+              className="rounded-xl aspect-auto"
+            />
+          </motion.div>
+
+          <motion.div
+            className="absolute left-0 bottom-0 z-30 rounded-xl shadow-base shadow-slate-400 dark:shadow-slate-700 max-[480px]:w-[70px] w-[90px] sm:w-[130px] lg:w-[200px] 2xl:translate-x-16"
+            initial={{ y: -80, opacity: 0 }}
+            animate={{ y: 0, opacity: 100, transition: { duration: 0.4 } }}
+          >
+            <Image
+              src={'/assetsShowcase.png'}
+              alt="assets showcase"
+              width={250}
+              height={250}
+              className="rounded-xl aspect-auto"
+            />
+          </motion.div>
           <Image
             src={'/PortfolioScreen.png'}
             alt="portfolio showcase"
-            className="w-auto h-auto rounded-xl aspect-video z-20"
+            className="w-auto h-auto rounded-lg aspect-video z-20 min-w-[260px]"
             width={800}
             height={800}
           />
         </section>
       </main>
 
-      <footer className="pt-10 pb-4">
-        <p className="">&copy;2023 Build by Moonshot</p>
-        <div></div>
+      <footer className="pt-10 pb-4 container">
+        <Link
+          href={'https://github.com/lucas-dash'}
+          className="hover:underline text-sm"
+        >
+          &copy;2023 Build with passion by Moonshot{' '}
+          <Icons.github className="w-3.5 h-3.5 inline-block mb-0.5" />
+        </Link>
       </footer>
     </>
   );

@@ -25,6 +25,22 @@ module.exports = {
           from: { height: 'var(--radix-accordion-content-height)' },
           to: { height: 0 },
         },
+        autoplay: {
+          '0%': {
+            transform: 'translateX(100vw)',
+            opacity: 0.5,
+          },
+          '5%': {
+            opacity: 1,
+          },
+          '90%': {
+            opacity: 1,
+          },
+          '100%': {
+            transform: 'translateX(calc(8 * -200px))',
+            opacity: 0.5,
+          },
+        },
       },
       transitionDuration: {
         1500: '1500ms',
@@ -35,6 +51,7 @@ module.exports = {
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out',
+        autoplay: 'autoplay 27s linear infinite',
       },
       colors: {
         primary: '#EFF2F5',

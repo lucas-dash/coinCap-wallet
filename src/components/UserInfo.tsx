@@ -39,7 +39,7 @@ export default function UserInfo() {
       </div>
 
       <article className="bg-foreground dark:bg-foreground-dark rounded-xl px-2 py-3 shadow-[0_2px_10px_-3px] shadow-shadow/60 dark:shadow-shadow/60 flex flex-col gap-3 2xl:max-w-6xl 2xl:mx-auto 2xl:w-[660px]">
-        <section>
+        {/* <section>
           <h6 className="font-semibold text-lg pb-1 pl-1.5">App</h6>
 
           <ul className="flex flex-col bg-zinc-200 dark:bg-background-dark rounded-lg">
@@ -50,7 +50,7 @@ export default function UserInfo() {
               </p>
             </li>
           </ul>
-        </section>
+        </section> */}
 
         <section>
           <h6 className="font-semibold text-lg pb-1 pl-1.5">
