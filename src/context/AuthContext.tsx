@@ -26,7 +26,6 @@ export default function AuthContextProvider({
       auth,
       (credential) => {
         if (credential) {
-          console.log(credential);
           setUser(credential);
           setLoading(false);
         } else {

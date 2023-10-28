@@ -22,14 +22,7 @@ import { FirebaseError } from 'firebase/app';
 import { useToast } from '@/components/ui/use-toast';
 import { useState } from 'react';
 import { Icons } from '@/components/ui/Icons';
-
-const logInSchema = z.object({
-  email: z.string().email(),
-  password: z
-    .string()
-    .min(6, { message: 'Password must cointain at least 6 character(s)' })
-    .max(100),
-});
+import { logInSchema } from '@/lib/validations/authSchema';
 
 export default function Login() {
   const router = useRouter();

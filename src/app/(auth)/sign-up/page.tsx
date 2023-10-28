@@ -23,23 +23,7 @@ import { useState } from 'react';
 import { FirebaseError } from 'firebase/app';
 import { Icons } from '@/components/ui/Icons';
 import { addUserData, checkForExistsData } from '@/firebase/db';
-
-const signUpSchema = z
-  .object({
-    email: z.string().email(),
-    password: z
-      .string()
-      .min(6, { message: 'Password must cointain at least 6 character(s)' })
-      .max(100),
-    confirmPassword: z
-      .string()
-      .min(6, { message: 'Password do not match' })
-      .max(100),
-  })
-  .refine((data) => data.password === data.confirmPassword, {
-    message: 'Password do not match',
-    path: ['confirmPassword'],
-  });
+import { signUpSchema } from '@/lib/validations/authSchema';
 
 export default function SignUp() {
   const router = useRouter();

@@ -14,8 +14,9 @@ export default function AuthLayout({
           <Image
             src="/BitcoinImg.png"
             alt="bitcoin image by Stactive Studio"
-            height={350}
-            width={350}
+            height={300}
+            width={300}
+            className="max-sm:max-w-[200px]"
           />
         </section>
         {children}
