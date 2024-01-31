@@ -92,7 +92,8 @@ export default function Hodl({ realTimeData }: HodlProps) {
                 <div>
                   <p>{currencyFormat(asset.realTime.valueNow)}</p>
                   <p className="text-sm text-typography-detail dark:text-typography-detail-dark">
-                    {asset.hodling} <span>{asset.coinDetail.symbol}</span>
+                    {currencyFormat(asset.hodling, 5)}{' '}
+                    <span>{asset.coinDetail.symbol}</span>
                   </p>
                 </div>
               </TableCell>

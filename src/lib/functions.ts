@@ -12,7 +12,8 @@ export function currencyFormat(price: number | string, digits: number = 2) {
   const formatted = new Intl.NumberFormat('en-US', {
     style: 'currency',
     currency: 'USD',
-    minimumFractionDigits: digits,
+    minimumFractionDigits: 2,
+    maximumFractionDigits: digits,
   });
 
   if (typeof price === 'string') return formatted.format(Number(price));
@@ -25,7 +26,7 @@ export function transactionFormat(payment: number | string) {
     style: 'currency',
     currency: 'USD',
     minimumFractionDigits: 2,
-    maximumFractionDigits: 8,
+    maximumFractionDigits: 3,
   });
 
   if (typeof payment === 'number') return formatted.format(payment);

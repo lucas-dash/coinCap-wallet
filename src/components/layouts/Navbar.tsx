@@ -11,8 +11,8 @@ export default function Navbar() {
           <div className="h-8 w-8 bg-slate-50 rounded-full flex items-center justify-center">
             <Image src={'/wallet.svg'} alt="icon" width={24} height={24} />
           </div>
-          <p className="text-lg font-semibold hidden min-[366px]:inline-block">
-            Coin Wallet
+          <p className="text-lg font-semibold hidden min-[400px]:inline-block">
+            CoinCap Wallet
           </p>
         </Link>
         <div className="flex items-center sm:gap-2">

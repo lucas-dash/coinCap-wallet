@@ -1,5 +1,6 @@
 import { Progress } from '../ui/progress';
 import CoinImage from '../ui/CoinImage';
+import { currencyFormat } from '@/lib/functions';
 
 export default function Asset({
   coinDetail,
@@ -20,7 +21,7 @@ export default function Asset({
           <h6 className="font-semibold">{coinName}</h6>
         </div>
         <p className="font-medium text-right break-words">
-          {hodling} {coinDetail.symbol}
+          {currencyFormat(hodling)} {coinDetail.symbol}
         </p>
       </div>
       <div className="inline-flex items-center gap-5">

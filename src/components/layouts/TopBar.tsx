@@ -15,8 +15,8 @@ export default function TopBar() {
             <div className="h-8 w-8 bg-slate-50 rounded-full flex items-center justify-center">
               <Image src={'/wallet.svg'} alt="icon" width={24} height={24} />
             </div>
-            <p className="text-lg font-semibold max-[300px]:hidden">
-              Coin Wallet
+            <p className="text-lg font-semibold max-[320px]:hidden">
+              CoinCap Wallet
             </p>
           </Link>
         </div>
